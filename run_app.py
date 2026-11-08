@@ -23,3 +23,4 @@ if __name__ == "__main__":
     print("⚖️  NyayaSetu (न्याय सेतु) - AI Legal Navigator for Indian Everyday Rights")
     print("=" * 70)
     start_server(port)
+

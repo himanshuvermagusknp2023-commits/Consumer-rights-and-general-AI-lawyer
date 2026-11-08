@@ -2,7 +2,8 @@
 """
 NyayaSetu - Web Prototype HTTP Server
 Lightweight, zero-external-dependency web server built with standard Python library.
-Serves the web application and handles REST API calls for legal analysis and drafting.
+Serves the web application and handles REST API calls for conversational legal analysis,
+the 4 Task Pillars, and interactive roleplay practice.
 """
 
 import sys
@@ -16,8 +17,8 @@ import urllib.parse
 ROOT_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT_DIR.parent))
 
+from nyayasetu.core.conversational_agent import ConversationalLegalAgent
 from nyayasetu.core.llm_client import LegalAIEngine
-from nyayasetu.core.statutes import VERIFIED_STATUTES
 
 STATIC_DIR = Path(__file__).resolve().parent / "static"
 
@@ -39,7 +40,11 @@ class NyayaHandler(BaseHTTPRequestHandler):
         parsed = urllib.parse.urlparse(self.path)
         path = parsed.path
 
-        if path == "/api/analyze":
+        if path == "/api/chat":
+            self._handle_chat()
+        elif path == "/api/roleplay":
+            self._handle_roleplay()
+        elif path == "/api/analyze":
             self._handle_analyze()
         else:
             self.send_error(404, "Endpoint Not Found")
@@ -85,6 +90,54 @@ class NyayaHandler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(body)
 
+    def _handle_chat(self):
+        try:
+            content_length = int(self.headers.get("Content-Length", 0))
+            post_data = self.rfile.read(content_length)
+            req_json = json.loads(post_data.decode("utf-8"))
+
+            message = req_json.get("message", "").strip()
+            history = req_json.get("history", [])
+            session_state = req_json.get("session_state", {})
+            language = req_json.get("language", "english")
+            model_type = req_json.get("model", "deterministic")
+            api_key = req_json.get("api_key", "").strip() or None
+
+            agent = ConversationalLegalAgent(model_type=model_type, api_key=api_key)
+            result = agent.process_message(
+                message=message,
+                history=history,
+                session_state=session_state,
+                language=language
+            )
+
+            self._send_json_response(result, 200)
+        except Exception as e:
+            self._send_json_response({"status": "error", "message": str(e)}, 500)
+
+    def _handle_roleplay(self):
+        try:
+            content_length = int(self.headers.get("Content-Length", 0))
+            post_data = self.rfile.read(content_length)
+            req_json = json.loads(post_data.decode("utf-8"))
+
+            user_rebuttal = req_json.get("user_rebuttal", "").strip()
+            session_state = req_json.get("session_state", {})
+            language = req_json.get("language", "english")
+            model_type = req_json.get("model", "deterministic")
+            api_key = req_json.get("api_key", "").strip() or None
+
+            agent = ConversationalLegalAgent(model_type=model_type, api_key=api_key)
+            result = agent._handle_roleplay_interaction(
+                user_rebuttal=user_rebuttal,
+                session_state=session_state,
+                language=language
+            )
+
+            self._send_json_response(result, 200)
+        except Exception as e:
+            self._send_json_response({"status": "error", "message": str(e)}, 500)
+
     def _handle_analyze(self):
         try:
             content_length = int(self.headers.get("Content-Length", 0))
@@ -96,15 +149,10 @@ class NyayaHandler(BaseHTTPRequestHandler):
             model_type = req_json.get("model", "deterministic")
             api_key = req_json.get("api_key", "").strip() or None
 
-            if not narrative:
-                self._send_json_response({"status": "error", "message": "Narrative cannot be empty."}, 400)
-                return
+            agent = ConversationalLegalAgent(model_type=model_type, api_key=api_key)
+            pillars = agent.generate_four_pillars(narrative, language=language)
 
-            engine = LegalAIEngine(model_type=model_type, api_key=api_key)
-            result = engine.process_case(narrative, language=language)
-
-            self._send_json_response(result, 200)
-
+            self._send_json_response(pillars, 200)
         except Exception as e:
             self._send_json_response({"status": "error", "message": str(e)}, 500)
 
@@ -119,7 +167,7 @@ class NyayaHandler(BaseHTTPRequestHandler):
 def start_server(port: int = 8080):
     server_address = ("127.0.0.1", port)
     httpd = ThreadingHTTPServer(server_address, NyayaHandler)
-    print(f"⚖️  NyayaSetu Legal AI Server running at http://127.0.0.1:{port}")
+    print(f"⚖️  NyayaSetu Conversational Legal AI Server running at http://127.0.0.1:{port}")
     print(f"Press Ctrl+C to stop.")
     try:
         httpd.serve_forever()

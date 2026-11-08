@@ -113,3 +113,4 @@ def _generate_hinglish_explanation(case: Dict[str, Any], statute_info: Dict[str,
         "realistic_timeline": "15 din demand notice ka time, 30-45 din NCH resolution, ya 3-6 mahine Consumer Forum order.",
         "financial_outlook": f"Aap ₹{amount:,} principal + 9-12% byaaj (interest) + ₹15,000-₹25,000 compensation claim kar sakte hain."
     }
+

@@ -280,3 +280,4 @@ def match_domain_by_text(text: str) -> str:
         return "ecommerce_defective_goods"
         
     return "general_consumer"
+

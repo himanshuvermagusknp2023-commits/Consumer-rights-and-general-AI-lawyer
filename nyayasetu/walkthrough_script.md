@@ -45,3 +45,4 @@
 ### **[2:40 - 3:00] Real-World Scale & Conclusion**
 > *"At scale, processing 10,000 cases costs under $3 on Gemini Flash. The entire engine can be plugged into a WhatsApp Business bot with Bhashini for 22 Indian languages.*
 > *All raw outputs and the 2-page PDF solution doc are in the repository. Thank you for your time, and I look forward to running this on your test inputs during the interview!"*
+

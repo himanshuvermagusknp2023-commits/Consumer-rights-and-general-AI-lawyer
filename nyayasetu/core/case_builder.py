@@ -113,3 +113,4 @@ def build_case_sheet(narrative: str, category: str, structured_overrides: Option
         case_data.update(structured_overrides)
 
     return case_data
+

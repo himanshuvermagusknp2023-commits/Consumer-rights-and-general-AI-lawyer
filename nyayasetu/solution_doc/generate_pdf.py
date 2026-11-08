@@ -2,22 +2,25 @@
 """
 NyayaSetu - Solution Document 2-Page PDF Generator
 Creates an impeccably formatted, professional 2-page PDF brief using pure Python.
-Zero external library dependencies (no reportlab/wkhtmltopdf needed).
+Explicitly highlights the 4 Task Pillars from Kuku Problem Statement 2:
+1. Build the case (what happened, when, and what proof)
+2. Explain where they stand and what their options are (plain language)
+3. Prepare what they need (notice, complaint, reply, application)
+4. Help them argue (opposing party roleplay)
 """
 
 from pathlib import Path
 
 def escape_pdf(text: str) -> str:
-    """Escapes special characters for PDF text operators."""
-    return text.replace('\\', '\\\\').replace('(', '\\(').replace(')', '\\)')
+    # Replace unicode dashes with ASCII hyphens to prevent latin-1 '?' artifacts
+    clean = text.replace('—', ' - ').replace('–', '-').replace('’', "'").replace('“', '"').replace('”', '"')
+    return clean.replace('\\', '\\\\').replace('(', '\\(').replace(')', '\\)')
 
 class PurePDFBuilder:
     def __init__(self, filename: str):
         self.filename = filename
-        self.pages = []  # list of byte streams
+        self.pages = []
         self.current_page_stream = []
-        self.page_width = 595.0
-        self.page_height = 842.0
 
     def start_page(self):
         self.current_page_stream = []
@@ -57,9 +60,9 @@ class PurePDFBuilder:
         )
         self.current_page_stream.append(stream_cmd)
 
-    def draw_wrapped_text(self, text: str, x: float, start_y: float, width_chars: int, font: str = "F1", size: float = 8.5, line_spacing: float = 11.5, r: float = 0.1, g: float = 0.12, b: float = 0.18) -> float:
-        """Wraps text cleanly and returns the ending Y position."""
-        words = text.split()
+    def draw_wrapped_text(self, text: str, x: float, start_y: float, width_chars: int, font: str = "F1", size: float = 8.0, line_spacing: float = 10.0, r: float = 0.1, g: float = 0.12, b: float = 0.18) -> float:
+        clean_text = text.replace('—', ' - ').replace('–', '-').replace('’', "'")
+        words = clean_text.split()
         lines = []
         curr = []
         curr_len = 0
@@ -83,20 +86,11 @@ class PurePDFBuilder:
     def build(self):
         num_pages = len(self.pages)
         objects = []
-        
-        # Object 1: Catalog
         objects.append(b"<< /Type /Catalog /Pages 2 0 R >>")
-        
-        # Object 2: Pages
         kids_refs = " ".join([f"{3 + i*3} 0 R" for i in range(num_pages)])
         objects.append(f"<< /Type /Pages /Kids [{kids_refs}] /Count {num_pages} >>".encode('ascii'))
-        
-        # Resources Font Dictionary (Object used by all pages)
-        # Fonts: F1=Helvetica, F2=Helvetica-Bold, F3=Helvetica-Oblique, F4=Courier
         font_obj_idx = 3 + num_pages * 3
         
-        # For each page:
-        # Page Obj (3 + i*3), Contents Obj (4 + i*3)
         for i in range(num_pages):
             page_obj = (
                 f"<< /Type /Page /Parent 2 0 R "
@@ -117,20 +111,15 @@ class PurePDFBuilder:
                 f"stream\n"
             ).encode('ascii') + content_bytes + b"\nendstream"
             objects.append(stream_obj)
-
-            # Placeholder for alignment object
             objects.append(b"<< >>")
 
-        # Add Font objects
         objects.append(b"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>")
         objects.append(b"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>")
         objects.append(b"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>")
         objects.append(b"<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>")
 
-        # Now write full PDF binary
         out = bytearray(b"%PDF-1.4\n%\xe2\xe3\xcf\xd3\n")
         offsets = [0]
-
         for i, obj in enumerate(objects, 1):
             offsets.append(len(out))
             out.extend(f"{i} 0 obj\n".encode('ascii'))
@@ -151,150 +140,175 @@ class PurePDFBuilder:
             f.write(out)
         print(f"✓ PDF successfully created: {self.filename} ({num_pages} pages)")
 
-
 def generate_solution_pdf(output_path: str):
     pdf = PurePDFBuilder(output_path)
 
     # ==========================================
-    # PAGE 1: Framing, Architecture & Safety
+    # PAGE 1: Framing & The 4 Task Pillars
     # ==========================================
     pdf.start_page()
 
     # Top Tag
-    pdf.draw_text("KUKU — AI GENERALIST ASSIGNMENT  |  PROBLEM STATEMENT 2", 40, 805, font="F2", size=8.5, r=0.4, g=0.45, b=0.55)
-    
-    # Title & Subtitle
-    pdf.draw_text("NyayaSetu: Everyday Consumer & Civil Legal Rights AI", 40, 785, font="F2", size=16.0, r=0.08, g=0.18, b=0.45)
-    pdf.draw_text("A Neuro-Symbolic Dispute Navigator for Ordinary Indian Citizens", 40, 770, font="F3", size=9.5, r=0.3, g=0.35, b=0.45)
+    pdf.draw_text("KUKU - AI GENERALIST ASSIGNMENT | PROBLEM STATEMENT 2", 40, 805, font="F2", size=8.5, r=0.4, g=0.45, b=0.55)
+    pdf.draw_text("NyayaSetu: Conversational AI Legal Navigator", 40, 786, font="F2", size=15.5, r=0.08, g=0.18, b=0.45)
+    pdf.draw_text("Everyday Indian Consumer & Civil Rights Assistant Built for the 4 Core Tasks", 40, 772, font="F3", size=9.0, r=0.3, g=0.35, b=0.45)
     
     # Header Rule
     pdf.set_stroke_color(0.2, 0.4, 0.8)
     pdf.set_line_width(1.5)
-    pdf.draw_line(40, 762, 555, 762)
+    pdf.draw_line(40, 764, 555, 764)
 
     # 1. Problem Choice & Framing
-    pdf.draw_text("1. Problem Choice, Framing & Scope", 40, 746, font="F2", size=11.0, r=0.08, g=0.18, b=0.45)
-    
+    pdf.draw_text("1. Problem Choice, Framing & Scope (Consumer & Everyday Civil Rights)", 40, 748, font="F2", size=10.0, r=0.08, g=0.18, b=0.45)
     p1_text = (
-        "In India, an estimated 95% of everyday civil grievances never receive legal redress: rental security deposits "
-        "(Rs 30k-1.5L) withheld under fictitious 'repainting' claims, e-commerce platforms refusing refunds for defective "
-        "electronics, coaching institutes hoarding advance annual fees, and cancelled flights locked into credit shells. "
-        "The economic paradox: hiring a civil advocate costs Rs 20,000-50,000 upfront. For claims under Rs 1-2 Lakhs, the "
-        "remedy costs more than the loss. Citizens abandon claims because legal language is intimidating and procedures are opaque."
+        "In India, an estimated 95% of everyday civil grievances never receive legal help: security deposits (Rs 30k-1.5L) withheld "
+        "for unproven 'repainting', e-commerce refund refusals on defective electronics, coaching fee advance forfeitures, and cancelled "
+        "flights forced into credit shells. Civil lawyers charge Rs 20,000-50,000 upfront; for disputes under Rs 1-2 Lakhs, legal action "
+        "costs more than the loss. Rather than building an all-law generalist that hallucinates across 1,200 statutes, NyayaSetu scopes "
+        "strictly to Consumer & Everyday Civil Rights. Over 75% of these disputes resolve in pre-litigation once the respondent realizes "
+        "the citizen has exact statutory sections, an evidentiary chronology, and a structured legal notice."
     )
-    y = pdf.draw_wrapped_text(p1_text, 40, 733, 108, font="F1", size=8.2, line_spacing=10.5)
+    y = pdf.draw_wrapped_text(p1_text, 40, 735, 108, font="F1", size=8.0, line_spacing=10.0)
 
-    p1_scope = (
-        "Why Consumer & Everyday Rights (and not everything)? Generalist legal LLMs fail by hallucinating criminal penal "
-        "sections and fabricated Supreme Court case citations. NyayaSetu scopes sharply to Consumer & Everyday Civil Rights. "
-        "Over 75% of these disputes resolve in pre-litigation once the respondent realizes the consumer possesses exact statutory "
-        "citations, an organized chronological record, and a structured legal demand notice."
-    )
-    y = pdf.draw_wrapped_text(p1_scope, 40, y - 4, 108, font="F1", size=8.2, line_spacing=10.5)
-
-    # 2. Approach & Architecture
+    # 2. THE 4 TASK PILLARS IMPLEMENTED
     y -= 10
-    pdf.draw_text("2. Approach & Architecture: AI vs. Deterministic Code Rules", 40, y, font="F2", size=11.0, r=0.08, g=0.18, b=0.45)
-    y -= 14
+    pdf.draw_text("2. The 4 Task Pillars Implemented (Directly from Assignment Brief)", 40, y, font="F2", size=10.0, r=0.08, g=0.18, b=0.45)
+    y -= 12
 
-    arch_box_y = y
+    # Task Box
+    box_top = y
+    box_h = 245
     pdf.set_stroke_color(0.8, 0.85, 0.92)
     pdf.set_color(0.97, 0.98, 1.0)
     pdf.set_line_width(0.8)
-    pdf.draw_rect(40, arch_box_y - 82, 515, 82, fill=True, stroke=True)
+    pdf.draw_rect(40, box_top - box_h, 515, box_h, fill=True, stroke=True)
 
-    pdf.draw_text("PIPELINE ARCHITECTURE (NEURO-SYMBOLIC HYBRID):", 48, arch_box_y - 12, font="F2", size=8.0, r=0.15, g=0.25, b=0.55)
-    pdf.draw_text("1. Conversational Intake: Web Speech API (voice in Hindi/English) + Text -> Extracts parties, dates, claims, proof.", 48, arch_box_y - 25, font="F1", size=8.0, r=0.1, g=0.12, b=0.2)
-    pdf.draw_text("2. Deterministic Legal Anchor: Strictly maps verified Indian statutes (CPA 2019, MTA 2021, Contract Act, DGCA CAR).", 48, arch_box_y - 37, font="F1", size=8.0, r=0.1, g=0.12, b=0.2)
-    pdf.draw_text("3. Evidentiary Readiness Meter: Audits required proof (UPI slips, agreements, chats) vs missing items before dispatch.", 48, arch_box_y - 49, font="F1", size=8.0, r=0.1, g=0.12, b=0.2)
-    pdf.draw_text("4. Actionable Drafting Studio: Generates 15-Day Demand Notice, e-Daakhil CPA Petition, and NCH 1915 grievance draft.", 48, arch_box_y - 61, font="F1", size=8.0, r=0.1, g=0.12, b=0.2)
-    pdf.draw_text("5. 'Devil's Advocate' Simulator: Rehearses opposing party counter-arguments with statutory rebuttal scripts.", 48, arch_box_y - 73, font="F1", size=8.0, r=0.1, g=0.12, b=0.2)
+    by = box_top - 12
+    # Pillar 1
+    pdf.draw_text("TASK PILLAR 1: BUILD THE CASE (What Happened, When, and What Proof)", 48, by, font="F2", size=8.2, r=0.15, g=0.25, b=0.55)
+    by -= 10
+    t1 = (
+        "- What Happened: Conversational intake extracts facts, claimant, respondent, dispute category, and monetary exposure.\n"
+        "- When (Timeline): Chronologically orders events from initial contract to defect occurrence, follow-ups, and rejection.\n"
+        "- What Proof: Audits evidence (UPI slips, agreements, chats, unboxing videos) and calculates an Evidentiary Readiness Score (0-100%), "
+        "flagging missing documents needed before dispatching formal notices."
+    )
+    for l in t1.split('\n'):
+        by = pdf.draw_wrapped_text(l, 48, by, 106, font="F1", size=7.5, line_spacing=9.2)
 
-    y = arch_box_y - 94
-    p2_split = (
-        "What We Delegated to AI: Understanding messy, emotional, multilingual narratives (Hinglish/English); natural entity "
-        "extraction; and roleplaying the opposing party's hostile objections. What We Kept in Deterministic Code: Statutory "
-        "sections, limitation periods, court fees, and legal notice clauses. The AI is structurally prevented from inventing laws. "
-        "Model Swapping: Implemented an abstract interface (LegalAIEngine) supporting zero-dependency deterministic execution "
+    # Pillar 2
+    by -= 4
+    pdf.draw_text("TASK PILLAR 2: EXPLAIN WHERE THEY STAND & WHAT THEIR OPTIONS ARE (In Plain Language)", 48, by, font="F2", size=8.2, r=0.15, g=0.25, b=0.55)
+    by -= 10
+    t2 = (
+        "- Plain Language Standing: Synthesizes rights under Consumer Protection Act 2019, Transfer of Property Act (Sec 108m), and Model Tenancy Act in accessible English and conversational Hinglish.\n"
+        "- 3-Tier Actionable Options: (1) 15-Day Statutory Demand Notice (pre-litigation cure); (2) National Consumer Helpline (NCH 1915 / INGRAM) free conciliation; (3) Online e-Daakhil / District Consumer Commission (zero court fee under Rs 5 Lakh)."
+    )
+    for l in t2.split('\n'):
+        by = pdf.draw_wrapped_text(l, 48, by, 106, font="F1", size=7.5, line_spacing=9.2)
+
+    # Pillar 3
+    by -= 4
+    pdf.draw_text("TASK PILLAR 3: PREPARE WHAT THEY NEED (Notice, Complaint, Reply, Application)", 48, by, font="F2", size=8.2, r=0.15, g=0.25, b=0.55)
+    by -= 10
+    t3 = (
+        "- 15-Day Legal Demand Notice: Standard pre-action notice with 12% interest and compensation demand.\n"
+        "- Formal Consumer Complaint: Complete Section 35 CPA 2019 petition formatted for e-Daakhil filing.\n"
+        "- Formal Rebuttal Reply: Legally structured rebuttal to landlord deduction notices or corporate refusal emails.\n"
+        "- Refund / Grievance Application: Ready-to-file application for company Nodal Officers and NCH 1915 portal."
+    )
+    for l in t3.split('\n'):
+        by = pdf.draw_wrapped_text(l, 48, by, 106, font="F1", size=7.5, line_spacing=9.2)
+
+    # Pillar 4
+    by -= 4
+    pdf.draw_text("TASK PILLAR 4: HELP THEM ARGUE (Live Opposing Party Roleplay Practice)", 48, by, font="F2", size=8.2, r=0.15, g=0.25, b=0.55)
+    by -= 10
+    t4 = (
+        "- Hostile Objection Simulator: Rehearses counter-arguments against intimidating excuses (e.g., landlord claiming 'clause 14 allows automatic painting deduction' or platform claiming '7-day replacement only').\n"
+        "- Interactive Rehearsal Box: User types or speaks their rebuttal; the AI evaluates evidentiary and statutory strength."
+    )
+    for l in t4.split('\n'):
+        by = pdf.draw_wrapped_text(l, 48, by, 106, font="F1", size=7.5, line_spacing=9.2)
+
+    # 3. Approach & Architecture
+    y = box_top - box_h - 14
+    pdf.draw_text("3. Approach & Architecture: AI vs. Deterministic Rules", 40, y, font="F2", size=10.0, r=0.08, g=0.18, b=0.45)
+    y -= 12
+    p3_arch = (
+        "What We Delegated to AI: Multilingual conversational intake (Web Speech API supporting Hindi/English voice input), messy "
+        "narrative structuring, entity extraction, and simulating the adversary's counter-arguments. What We Kept in Deterministic Code: "
+        "Statutory sections, limitation periods, court fees, and template formatting. The model is structurally prevented from inventing "
+        "laws. Pluggable Architecture: Built with an abstract interface (LegalAIEngine) supporting zero-dependency deterministic execution "
         "(offline, instant, $0 cost) and 1-click connectors for Google Gemini Flash and OpenAI GPT-4o-mini."
     )
-    y = pdf.draw_wrapped_text(p2_split, 40, y, 108, font="F1", size=8.2, line_spacing=10.5)
-
-    # 3. Human in the loop & Safety
-    y -= 10
-    pdf.draw_text("3. Human-in-the-Loop & Safety Guardrails", 40, y, font="F2", size=11.0, r=0.08, g=0.18, b=0.45)
-    y -= 13
-
-    p3_safety = (
-        "- Evidentiary Readiness Audit: Before notice dispatch, the system computes an evidence score (0-100%) and tells the "
-        "user exactly what documents they must attach (e.g. proof of key handover, GST invoice) so they do not make weak claims.\n"
-        "- Non-Waivable Scope Boundary: If a prompt touches violence, criminal arrest, matrimonial divorce, or claims > Rs 50 Lakhs, "
-        "the engine stops legal drafting and routes the user to Emergency Police (112) or the National Legal Services Authority "
-        "(NALSA 15100) for free advocate representation.\n"
-        "- Transparent Disclaimer: Prominently states that NyayaSetu provides self-help legal dispute assistance, not an advocate-client relationship."
-    )
-    for line in p3_safety.split('\n'):
-        y = pdf.draw_wrapped_text(line, 40, y, 108, font="F1", size=8.2, line_spacing=10.5)
-        y -= 2
+    y = pdf.draw_wrapped_text(p3_arch, 40, y, 108, font="F1", size=8.0, line_spacing=9.8)
 
     # Footer Page 1
     pdf.set_stroke_color(0.85, 0.88, 0.92)
     pdf.set_line_width(0.8)
     pdf.draw_line(40, 45, 555, 45)
-    pdf.draw_text("NyayaSetu Solution Brief | Kuku AI Generalist Assignment", 40, 32, font="F1", size=8.0, r=0.5, g=0.5, b=0.5)
+    pdf.draw_text("NyayaSetu Solution Brief | Kuku AI Generalist Assignment - Problem Statement 2", 40, 32, font="F1", size=8.0, r=0.5, g=0.5, b=0.5)
     pdf.draw_text("Page 1 of 2", 515, 32, font="F2", size=8.0, r=0.5, g=0.5, b=0.5)
-
     pdf.end_page()
 
     # ==========================================
-    # PAGE 2: Scale, Quality Evaluation & Limits
+    # PAGE 2: Scale, Safety, Benchmark & Limits
     # ==========================================
     pdf.start_page()
 
-    # Top Tag
-    pdf.draw_text("KUKU — AI GENERALIST ASSIGNMENT  |  EVALUATION & SCALE", 40, 805, font="F2", size=8.5, r=0.4, g=0.45, b=0.55)
-    pdf.draw_text("Performance, Real-World Scale & Failure Modes", 40, 785, font="F2", size=15.0, r=0.08, g=0.18, b=0.45)
+    pdf.draw_text("KUKU - AI GENERALIST ASSIGNMENT | EVALUATION & SCALE", 40, 805, font="F2", size=8.5, r=0.4, g=0.45, b=0.55)
+    pdf.draw_text("Scale, Safety Guardrails, Benchmark & Limitations", 40, 786, font="F2", size=15.5, r=0.08, g=0.18, b=0.45)
     
-    # Header Rule
     pdf.set_stroke_color(0.2, 0.4, 0.8)
     pdf.set_line_width(1.5)
     pdf.draw_line(40, 775, 555, 775)
 
-    # 4. Economics & Scale
+    # 4. Human-in-the-Loop & Safety
     y = 758
-    pdf.draw_text("4. Economics, Latency & Scale to 1.4 Billion People", 40, y, font="F2", size=11.0, r=0.08, g=0.18, b=0.45)
-    y -= 13
-
-    p4_text = (
-        "- Unit Economics at Volume: Processing each dispute requires ~800 intake tokens and ~1,200 output tokens. On Gemini Flash "
-        "or deterministic execution, 10,000 completed case packages cost under $3.00 total. Zero expensive fine-tuning required.\n"
-        "- Mass Channel Portability: The core backend is zero-dependency Python. In 48 hours, it can be deployed as an automated "
-        "WhatsApp Business bot via Meta Cloud API, integrated with Bhashini (Govt of India AI translation) for voice in 22 languages.\n"
-        "- Direct Government Integration: The system's structured JSON output directly matches the schema required by the National "
-        "Consumer Helpline (NCH - 1915 / INGRAM API) and e-Daakhil for seamless 1-click filing."
+    pdf.draw_text("4. Human-in-the-Loop & Safety Guardrails", 40, y, font="F2", size=10.0, r=0.08, g=0.18, b=0.45)
+    y -= 12
+    p4_safe = (
+        "- Non-Waivable Scope Boundary: If a prompt touches violence, criminal arrest, matrimonial divorce, or claims > Rs 50 Lakhs, "
+        "the engine halts drafting and routes the citizen to Emergency Police (112) or the National Legal Services Authority (NALSA 15100).\n"
+        "- Anti-Hallucination Anchor: All citations map to verified Indian acts (CPA 2019, TPA 1882, MTA 2021, Contract Act, DGCA CAR).\n"
+        "- Transparent Disclaimer: Prominently states that NyayaSetu provides self-help legal dispute assistance, not an advocate-client relationship."
     )
-    for line in p4_text.split('\n'):
-        y = pdf.draw_wrapped_text(line, 40, y, 108, font="F1", size=8.2, line_spacing=10.5)
+    for l in p4_safe.split('\n'):
+        y = pdf.draw_wrapped_text(l, 40, y, 108, font="F1", size=8.0, line_spacing=10.0)
         y -= 2
 
-    # 5. Quality Checking & Benchmark Table
-    y -= 8
-    pdf.draw_text("5. Quality Checking: 6 Real-World Benchmark Test Runs", 40, y, font="F2", size=11.0, r=0.08, g=0.18, b=0.45)
-    y -= 14
+    # 5. Economics & Scale
+    y -= 6
+    pdf.draw_text("5. Economics, Latency & Scale to 1.4 Billion People", 40, y, font="F2", size=10.0, r=0.08, g=0.18, b=0.45)
+    y -= 12
+    p5_econ = (
+        "- Unit Economics at Volume: Processing each dispute requires ~800 intake tokens and ~1,200 output tokens. On Gemini Flash "
+        "or deterministic execution, 10,000 completed case packages cost under $3.00 total. Zero expensive fine-tuning required.\n"
+        "- Mass Channel Portability: Built on zero-dependency Python 3. Can be ported in 48 hours to a WhatsApp Business chatbot via "
+        "Meta Cloud API, integrated with Bhashini (Govt of India AI translation) for voice interaction across 22 scheduled Indian languages."
+    )
+    for l in p5_econ.split('\n'):
+        y = pdf.draw_wrapped_text(l, 40, y, 108, font="F1", size=8.0, line_spacing=10.0)
+        y -= 2
 
-    # Table Header Box
+    # 6. Quality Checking & Benchmark Table
+    y -= 6
+    pdf.draw_text("6. Quality Checking: 6 Real-World Benchmark Runs", 40, y, font="F2", size=10.0, r=0.08, g=0.18, b=0.45)
+    y -= 13
+
     tbl_top = y
     pdf.set_stroke_color(0.7, 0.75, 0.85)
     pdf.set_color(0.93, 0.95, 0.98)
     pdf.set_line_width(0.8)
-    pdf.draw_rect(40, tbl_top - 16, 515, 16, fill=True, stroke=True)
+    pdf.draw_rect(40, tbl_top - 15, 515, 15, fill=True, stroke=True)
 
-    pdf.draw_text("ID", 45, tbl_top - 12, font="F2", size=7.5, r=0.1, g=0.15, b=0.35)
-    pdf.draw_text("Dispute Scenario", 75, tbl_top - 12, font="F2", size=7.5, r=0.1, g=0.15, b=0.35)
-    pdf.draw_text("Claim", 215, tbl_top - 12, font="F2", size=7.5, r=0.1, g=0.15, b=0.35)
-    pdf.draw_text("Grounded Indian Statutes", 270, tbl_top - 12, font="F2", size=7.5, r=0.1, g=0.15, b=0.35)
-    pdf.draw_text("Readiness", 435, tbl_top - 12, font="F2", size=7.5, r=0.1, g=0.15, b=0.35)
-    pdf.draw_text("Anti-Hallucination", 485, tbl_top - 12, font="F2", size=7.5, r=0.1, g=0.15, b=0.35)
+    pdf.draw_text("ID", 45, tbl_top - 11, font="F2", size=7.5, r=0.1, g=0.15, b=0.35)
+    pdf.draw_text("Dispute Scenario", 75, tbl_top - 11, font="F2", size=7.5, r=0.1, g=0.15, b=0.35)
+    pdf.draw_text("Claim", 215, tbl_top - 11, font="F2", size=7.5, r=0.1, g=0.15, b=0.35)
+    pdf.draw_text("Grounded Indian Statutes", 270, tbl_top - 11, font="F2", size=7.5, r=0.1, g=0.15, b=0.35)
+    pdf.draw_text("Readiness", 435, tbl_top - 11, font="F2", size=7.5, r=0.1, g=0.15, b=0.35)
+    pdf.draw_text("Anti-Hallucination", 485, tbl_top - 11, font="F2", size=7.5, r=0.1, g=0.15, b=0.35)
 
     rows = [
         ("CASE-01", "Tenant Deposit Retention (Painting)", "Rs 60,000", "TPA Sec 108(m), MTA 2021, Contract Act Sec 73", "100%", "PASS (0 fake acts)"),
@@ -302,59 +316,47 @@ def generate_solution_pdf(output_path: str):
         ("CASE-03", "IndiGo Cancelled Flight Credit Shell", "Rs 19,800", "DGCA CAR Series M Part IV, Pravasi Legal (SC)", "80%", "PASS (0 fake acts)"),
         ("CASE-04", "Coaching Institute Advance Fee Lock", "Rs 1,40,000", "CPA 2019 Sec 2(46), CCPA Coaching Rules 2024", "40%", "PASS (0 fake acts)"),
         ("CASE-05", "Startup Freelancer Unpaid Invoice", "Rs 45,000", "Contract Act Sec 70 & 73, MSMED Act Sec 15 & 16", "80%", "PASS (0 fake acts)"),
-        ("CASE-06", "Adversarial Scope: Arrest Neighbor", "Civic / N/A", "None (Refused criminal arrest / divorce scope)", "N/A", "PASS (Blocked)")
+        ("CASE-06", "Adversarial Scope: Arrest Neighbor", "Civic / N/A", "None (Refused criminal arrest / divorce scope)", "N/A", "PASS (Blocked & Routed)")
     ]
 
-    curr_tbl_y = tbl_top - 16
+    curr_tbl_y = tbl_top - 15
     for r_id, scn, clm, stat, rdy, ah in rows:
         pdf.set_color(1.0, 1.0, 1.0)
-        pdf.draw_rect(40, curr_tbl_y - 14, 515, 14, fill=True, stroke=True)
-        pdf.draw_text(r_id, 45, curr_tbl_y - 10, font="F2", size=7.0, r=0.1, g=0.15, b=0.3)
-        pdf.draw_text(scn, 75, curr_tbl_y - 10, font="F1", size=7.0, r=0.1, g=0.15, b=0.3)
-        pdf.draw_text(clm, 215, curr_tbl_y - 10, font="F2", size=7.0, r=0.1, g=0.15, b=0.3)
-        pdf.draw_text(stat, 270, curr_tbl_y - 10, font="F1", size=6.8, r=0.15, g=0.2, b=0.35)
-        pdf.draw_text(rdy, 435, curr_tbl_y - 10, font="F2", size=7.0, r=0.1, g=0.5, b=0.2)
-        pdf.draw_text(ah, 485, curr_tbl_y - 10, font="F2", size=7.0, r=0.05, g=0.55, b=0.2 if "PASS" in ah else 0.8)
-        curr_tbl_y -= 14
+        pdf.draw_rect(40, curr_tbl_y - 13, 515, 13, fill=True, stroke=True)
+        pdf.draw_text(r_id, 45, curr_tbl_y - 9.5, font="F2", size=6.8, r=0.1, g=0.15, b=0.3)
+        pdf.draw_text(scn, 75, curr_tbl_y - 9.5, font="F1", size=6.8, r=0.1, g=0.15, b=0.3)
+        pdf.draw_text(clm, 215, curr_tbl_y - 9.5, font="F2", size=6.8, r=0.1, g=0.15, b=0.3)
+        pdf.draw_text(stat, 270, curr_tbl_y - 9.5, font="F1", size=6.6, r=0.15, g=0.2, b=0.35)
+        pdf.draw_text(rdy, 435, curr_tbl_y - 9.5, font="F2", size=6.8, r=0.1, g=0.5, b=0.2)
+        pdf.draw_text(ah, 485, curr_tbl_y - 9.5, font="F2", size=6.8, r=0.05, g=0.55, b=0.2 if "PASS" in ah else 0.8)
+        curr_tbl_y -= 13
 
-    y = curr_tbl_y - 12
+    y = curr_tbl_y - 10
 
-    # 6. Honest Limitations & Where It Fails
-    pdf.draw_text("6. Honest Limitations & Where the System Fails", 40, y, font="F2", size=11.0, r=0.08, g=0.18, b=0.45)
-    y -= 13
-
-    p6_limits = (
-        "1. Factual Dishonesty by User: If a tenant willfully caused damage to walls or an e-commerce buyer tampered with goods, "
-        "the AI assumes good faith. The generated notice will collapse under cross-examination if the opposing party has counter-proof.\n"
-        "2. State-Level Rent Law Discrepancies: While the Consumer Protection Act 2019 is central and uniform, tenancy statutes vary "
-        "by state (e.g. Karnataka Rent Act vs. Maharashtra Rent Control Act). NyayaSetu anchors on the national Transfer of Property "
-        "Act and Model Tenancy Act, but state-specific deposit registry procedures still require localized lawyer oversight.\n"
+    # 7. Honest Limitations & Where It Fails
+    pdf.draw_text("7. Honest Limitations & Where the System Fails", 40, y, font="F2", size=10.0, r=0.08, g=0.18, b=0.45)
+    y -= 12
+    p7_limits = (
+        "1. Factual Dishonesty by User: If a tenant willfully caused damage to walls or a buyer tampered with goods, the AI assumes good "
+        "faith. The generated notice will collapse under cross-examination if the opposing party has counter-proof.\n"
+        "2. State-Level Rent Law Discrepancies: While CPA 2019 is uniform, tenancy statutes vary by state (e.g. Karnataka Rent Act vs. "
+        "Maharashtra Rent Control Act). NyayaSetu anchors on national TPA and MTA, but state-specific deposit registry procedures still require localized lawyer oversight.\n"
         "3. High-Conflict or Disputed Oral Evidence: For complex claims involving oral promises, fraud allegations, or high financial "
         "stakes, automated notices cannot substitute for formal evidentiary discovery and cross-examination by an advocate."
     )
-    for line in p6_limits.split('\n'):
-        y = pdf.draw_wrapped_text(line, 40, y, 108, font="F1", size=8.2, line_spacing=10.5)
+    for l in p7_limits.split('\n'):
+        y = pdf.draw_wrapped_text(l, 40, y, 108, font="F1", size=8.0, line_spacing=10.0)
         y -= 2
 
-    # 7. Deliverables & Quickstart
-    y -= 8
-    pdf.draw_text("7. Prototype Deliverables & Quickstart for Evaluators", 40, y, font="F2", size=11.0, r=0.08, g=0.18, b=0.45)
-    y -= 13
-
-    p7_steps = (
-        "- Benchmark & Raw Outputs: Run 'python3 nyayasetu/run_eval.py'. Generates raw outputs in 'nyayasetu/raw_outputs/'.\n"
-        "- Interactive Web Prototype: Run 'python3 run_app.py 8080'. Open http://localhost:8080 in any web browser.\n"
-        "- Zero Friction Guarantee: Pure Python 3 standard library runtime. Zero 'pip install' errors or broken environment setups."
-    )
-    for line in p7_steps.split('\n'):
-        y = pdf.draw_wrapped_text(line, 40, y, 108, font="F1", size=8.2, line_spacing=10.5)
-        y -= 2
+    # Quickstart line
+    y -= 4
+    pdf.draw_text("RUN INSTRUCTIONS: 'python3 nyayasetu/run_eval.py' (eval) | 'python3 run_app.py 8080' (web prototype)", 40, y, font="F2", size=7.8, r=0.2, g=0.3, b=0.6)
 
     # Footer Page 2
     pdf.set_stroke_color(0.85, 0.88, 0.92)
     pdf.set_line_width(0.8)
     pdf.draw_line(40, 45, 555, 45)
-    pdf.draw_text("NyayaSetu Solution Brief | Kuku AI Generalist Assignment", 40, 32, font="F1", size=8.0, r=0.5, g=0.5, b=0.5)
+    pdf.draw_text("NyayaSetu Solution Brief | Kuku AI Generalist Assignment - Problem Statement 2", 40, 32, font="F1", size=8.0, r=0.5, g=0.5, b=0.5)
     pdf.draw_text("Page 2 of 2", 515, 32, font="F2", size=8.0, r=0.5, g=0.5, b=0.5)
 
     pdf.end_page()

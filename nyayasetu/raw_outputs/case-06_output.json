@@ -1,6 +1,5 @@
 {
-  "status": "out_of_scope",
-  "message": "⚠️ IMPORTANT LEGAL ESCALATION & SCOPE BOUNDARY:\nThis matter involves potential criminal allegations, physical harm, or specialized family/matrimonial dispute. NyayaSetu is strictly an everyday consumer and civil rights assistant.\n\nImmediate Steps Required:\n1. For immediate safety/criminal complaints: Dial 112 (National Emergency Helpline) or visit your nearest Police Station.\n2. For free legal aid from a certified Indian advocate: Call National Legal Services Authority (NALSA) Helpline at 15100.\n3. For matrimonial/custody disputes: You must consult a licensed Family Court advocate. AI cannot draft criminal petitions or divorce proceedings.",
-  "is_safe": false,
-  "domain": "Emergency / Criminal / Family Court (Out of Scope)"
+  "reply": "⚠️ **MANDATORY LEGAL SAFETY NOTICE & SCOPE BOUNDARY**\n\nThis matter appears to involve potential criminal offenses, physical threats, or specialized matrimonial/divorce litigation. NyayaSetu is strictly an everyday civil and consumer rights assistant.\n\n**Immediate Actions Required:**\n• **For immediate safety / police FIR:** Dial **112** (National Emergency Helpline) or visit your nearest Police Station.\n• **For free certified advocate aid:** Call the **National Legal Services Authority (NALSA)** helpline at **15100**.\n• **For matrimonial/custody disputes:** Consult a licensed Family Court advocate. AI cannot draft criminal petitions or divorce proceedings.",
+  "is_out_of_scope": true,
+  "four_pillars": null
 }

@@ -141,3 +141,4 @@ class LegalAIEngine:
                 return parsed
 
         raise ValueError(f"Unsupported model type: {self.model_type}")
+

@@ -71,3 +71,4 @@ SIMULATION_ROLES: Dict[str, List[Dict[str, str]]] = {
 def get_roleplay_scenarios(category: str) -> List[Dict[str, str]]:
     """Returns simulated objections and counter-arguments for the specified category."""
     return SIMULATION_ROLES.get(category, SIMULATION_ROLES["ecommerce_defective_goods"])
+
