@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NyayaSetu (न्याय सेतु) - AI Legal Navigator for Indian Everyday Rights</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --accent: #f59e0b;
+      --success: #10b981;
+      --danger: #ef4444;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.5;
+      padding-bottom: 60px;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+      color: white;
+      padding: 24px 20px;
+      border-bottom: 4px solid var(--accent);
+      box-shadow: var(--shadow);
+    }
+    .header-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .brand-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .scale-icon {
+      font-size: 32px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 8px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    h1 { font-size: 24px; font-weight: 800; letter-spacing: -0.5px; }
+    .subtitle { color: #94a3b8; font-size: 13px; font-weight: 500; }
+    .badge-scope {
+      background: rgba(245, 158, 11, 0.2);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1100px;
+      margin: 24px auto;
+      padding: 0 16px;
+    }
+
+    /* Card styling */
+    .card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .card-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Test Case Chips */
+    .preset-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .presets-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .preset-btn {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      color: #334155;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .preset-btn:hover {
+      background: #e2e8f0;
+      border-color: #94a3b8;
+      color: #0f172a;
+    }
+    .preset-btn.active {
+      background: #eff6ff;
+      border-color: var(--primary-light);
+      color: var(--primary);
+    }
+    .preset-btn.btn-adversarial {
+      border-color: #fca5a5;
+      background: #fef2f2;
+      color: #b91c1c;
+    }
+
+    /* Textarea & Voice input */
+    .input-wrapper {
+      position: relative;
+      margin-bottom: 16px;
+    }
+    textarea {
+      width: 100%;
+      height: 140px;
+      padding: 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--text-main);
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    textarea:focus {
+      border-color: var(--primary-light);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    }
+    .voice-btn {
+      position: absolute;
+      right: 12px;
+      bottom: 14px;
+      background: white;
+      border: 1px solid #cbd5e1;
+      color: var(--text-muted);
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: var(--shadow-sm);
+    }
+    .voice-btn.listening {
+      background: #fee2e2;
+      border-color: #ef4444;
+      color: #dc2626;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5); }
+      70% { box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+    }
+
+    /* Controls bar */
+    .controls-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .select-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    label { font-size: 13px; font-weight: 600; color: var(--text-muted); }
+    select, input[type="text"] {
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-family: inherit;
+      font-size: 13px;
+      background: white;
+      color: var(--text-main);
+      outline: none;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary:hover { background: #1e40af; }
+    .btn-primary:disabled { background: #94a3b8; cursor: not-allowed; }
+
+    /* Results section */
+    #results-area { display: none; }
+
+    /* Alert Boxes */
+    .alert-danger {
+      background: #fef2f2;
+      border: 1.5px solid #f87171;
+      border-radius: 10px;
+      padding: 18px;
+      margin-bottom: 24px;
+      color: #991b1b;
+    }
+    .alert-danger h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .alert-danger p { font-size: 13px; white-space: pre-line; line-height: 1.6; }
+
+    /* Metrics Grid */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .metric-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .metric-title { font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .metric-value { font-size: 22px; font-weight: 800; color: var(--primary); margin: 6px 0; }
+    .metric-sub { font-size: 12px; color: #475569; }
+
+    /* Progress bar */
+    .progress-bar-bg {
+      background: #e2e8f0;
+      border-radius: 6px;
+      height: 8px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    .progress-bar-fill {
+      background: var(--success);
+      height: 100%;
+      border-radius: 6px;
+      transition: width 0.4s ease;
+    }
+
+    /* Evidentiary Checklist */
+    .evidence-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 640px) { .evidence-section { grid-template-columns: 1fr; } }
+    .evidence-col {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+    }
+    .evidence-col-title {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .evidence-list { list-style: none; font-size: 13px; }
+    .evidence-list li {
+      padding: 5px 0;
+      border-bottom: 1px dashed #e2e8f0;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    .evidence-list li:last-child { border-bottom: none; }
+
+    /* Escalation Roadmap */
+    .roadmap-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .roadmap-step {
+      background: #f8fafc;
+      border-left: 4px solid var(--primary-light);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 16px;
+    }
+    .roadmap-step-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    .roadmap-step-action { font-size: 13px; color: var(--text-main); margin-bottom: 4px; }
+    .roadmap-step-meta { font-size: 12px; color: var(--text-muted); display: flex; gap: 16px; }
+
+    /* Drafting Studio Tabs */
+    .tab-nav {
+      display: flex;
+      gap: 6px;
+      border-bottom: 1.5px solid var(--border);
+      margin-bottom: 16px;
+      overflow-x: auto;
+    }
+    .tab-btn {
+      background: transparent;
+      border: none;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      white-space: nowrap;
+    }
+    .tab-btn.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+    .document-preview-container {
+      position: relative;
+    }
+    .doc-actions {
+      display: flex;
+      gap: 8px;
+      justify-content: flex-end;
+      margin-bottom: 8px;
+    }
+    .btn-action {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .btn-action:hover { background: #f1f5f9; }
+    .doc-box {
+      background: #0f172a;
+      color: #f1f5f9;
+      padding: 18px;
+      border-radius: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      line-height: 1.6;
+      max-height: 380px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      border: 1px solid #334155;
+    }
+
+    /* Roleplay Simulator Cards */
+    .roleplay-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+    .objection-bubble {
+      background: #fee2e2;
+      border: 1px solid #fca5a5;
+      color: #991b1b;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .rebuttal-box {
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #065f46;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .rebuttal-box strong { color: #047857; display: block; margin-bottom: 4px; font-size: 13.5px; }
+    .rebuttal-anchor {
+      font-size: 11px;
+      background: #d1fae5;
+      color: #065f46;
+      padding: 2px 8px;
+      border-radius: 12px;
+      display: inline-block;
+      margin-top: 8px;
+      font-weight: 600;
+    }
+
+    /* Statutory Guardrails Footer */
+    .guardrail-card {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .statute-tag {
+      background: #dcfce7;
+      color: #166534;
+      border: 1px solid #86efac;
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      display: inline-block;
+      margin: 4px;
+    }
+    .disclaimer-note {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header>
+    <div class="header-container">
+      <div class="brand-title">
+        <div class="scale-icon">⚖️</div>
+        <div>
+          <h1>NyayaSetu (न्याय सेतु)</h1>
+          <div class="subtitle">AI Legal Navigator for Everyday Indian Consumer & Tenant Rights</div>
+        </div>
+      </div>
+      <div class="badge-scope">
+        🔒 Strictly Grounded Indian Law • Zero Fake Citations
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- Card 1: Interactive Narrative Intake -->
+    <div class="card">
+      <div class="card-title">
+        <span>📝</span> What happened? Describe your consumer or civil dispute
+      </div>
+
+      <span class="preset-label">Or load a pre-built benchmark scenario:</span>
+      <div class="presets-container" id="presets-container">
+        <button class="preset-btn" onclick="loadPreset(0)">🏢 Landlord ₹60k Deposit (Painting Excuse)</button>
+        <button class="preset-btn" onclick="loadPreset(1)">📱 Flipkart Defective Phone (7-Day Loop)</button>
+        <button class="preset-btn" onclick="loadPreset(2)">✈️ IndiGo Flight Cancelled (Credit Shell)</button>
+        <button class="preset-btn" onclick="loadPreset(3)">🎓 Coaching Fee Forfeiture (₹1.4L Advance)</button>
+        <button class="preset-btn" onclick="loadPreset(4)">💻 Freelancer Unpaid Invoice (₹45,000)</button>
+        <button class="preset-btn btn-adversarial" onclick="loadPreset(5)">🚨 Scope Test: Criminal Arrest Request</button>
+      </div>
+
+      <div class="input-wrapper">
+        <textarea id="caseNarrative" placeholder="Describe what happened in your own words (English or Hinglish). Mention what was paid, what the company/landlord did or refused, and what proof (receipts, WhatsApp, emails) you have..."></textarea>
+        <button class="voice-btn" id="voiceBtn" onclick="toggleVoiceInput()">
+          <span id="micIcon">🎙️</span> <span id="micText">Voice Input</span>
+        </button>
+      </div>
+
+      <div class="controls-bar">
+        <div class="select-group">
+          <label for="langSelect">Language:</label>
+          <select id="langSelect">
+            <option value="english">English (Formal & Plain)</option>
+            <option value="hinglish">Hinglish (Hindi-English mix)</option>
+          </select>
+
+          <label for="modelSelect">AI Engine:</label>
+          <select id="modelSelect">
+            <option value="deterministic">⚡ Deterministic Rule Engine (Instant, Offline, 0% Hallucination)</option>
+            <option value="gemini">✨ Google Gemini Flash (API)</option>
+            <option value="openai">🤖 OpenAI GPT-4o-mini (API)</option>
+          </select>
+
+          <input type="text" id="apiKeyInput" placeholder="API Key (optional if using external model)" style="display:none; width: 180px;">
+        </div>
+
+        <button class="btn-primary" id="analyzeBtn" onclick="analyzeCase()">
+          <span>Build Case & Generate Notice</span> ➔
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 2: Results Display Area -->
+    <div id="results-area">
+
+      <!-- Out-of-scope Warning if triggered -->
+      <div id="scope-alert" class="alert-danger" style="display:none;">
+        <h3 id="scope-alert-title">⚠️ SCOPE BOUNDARY NOTICE</h3>
+        <p id="scope-alert-msg"></p>
+      </div>
+
+      <div id="success-results">
+        
+        <!-- Case Sheet & Readiness Metrics -->
+        <div class="card">
+          <div class="card-title">
+            <span>📋</span> Case Brief & Evidentiary Health
+          </div>
+
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-title">Principal Claim</div>
+              <div class="metric-value" id="val-amount">₹0</div>
+              <div class="metric-sub" id="val-respondent">Opposite Party: ...</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-title">Total Financial Exposure</div>
+              <div class="metric-value" id="val-exposure">₹0</div>
+              <div class="metric-sub">+ 12% statutory interest & compensation</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-title">Evidentiary Readiness</div>
+              <div class="metric-value" id="val-readiness">0%</div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="val-readiness-bar" style="width: 0%"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Evidence Checklist -->
+          <div class="evidence-section">
+            <div class="evidence-col">
+              <div class="evidence-col-title" style="color: var(--success);">
+                <span>✓</span> Proof Detected in Your Narrative
+              </div>
+              <ul class="evidence-list" id="proof-found-list"></ul>
+            </div>
+            <div class="evidence-col">
+              <div class="evidence-col-title" style="color: var(--accent);">
+                <span>⚠️</span> Recommended Proof to Collect Before Notice
+              </div>
+              <ul class="evidence-list" id="proof-missing-list"></ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Plain Language Legal Standing & 3-Step Escalation -->
+        <div class="card">
+          <div class="card-title">
+            <span>⚖️</span> Where You Stand & 3-Step Escalation Roadmap
+          </div>
+          <p id="plain-standing-summary" style="font-size: 14px; margin-bottom: 12px; color: var(--text-main); line-height: 1.6;"></p>
+
+          <div class="roadmap-list" id="escalation-roadmap"></div>
+        </div>
+
+        <!-- Drafting Studio -->
+        <div class="card">
+          <div class="card-title">
+            <span>📄</span> Legal Drafting Studio (Ready to Dispatch)
+          </div>
+
+          <div class="tab-nav">
+            <button class="tab-btn active" onclick="switchDocTab('legal_notice')">📜 15-Day Demand Notice</button>
+            <button class="tab-btn" onclick="switchDocTab('consumer_petition')">🏛️ District Commission Petition (CPA)</button>
+            <button class="tab-btn" onclick="switchDocTab('nch_grievance')">📞 National Consumer Helpline (1915)</button>
+            <button class="tab-btn" onclick="switchDocTab('whatsapp_escalation')">💬 WhatsApp / Email Escalation</button>
+          </div>
+
+          <div class="document-preview-container">
+            <div class="doc-actions">
+              <button class="btn-action" onclick="copyDocument()">📋 Copy Text</button>
+              <button class="btn-action" onclick="downloadDocument()">⬇️ Download .TXT</button>
+            </div>
+            <div class="doc-box" id="docDisplayBox"></div>
+          </div>
+        </div>
+
+        <!-- "Devil's Advocate" Roleplay Simulator -->
+        <div class="card">
+          <div class="card-title">
+            <span>🥊</span> "Devil's Advocate" Rehearsal: Practice Countering Hostile Excuses
+          </div>
+          <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;">
+            Landlords and corporations use intimidation and confusing clauses to make you drop your claim. Here is how you rebut them under Indian law:
+          </p>
+
+          <div id="roleplay-container"></div>
+        </div>
+
+        <!-- Anti-Hallucination Grounding & Statutory Verification Badge -->
+        <div class="card guardrail-card">
+          <div class="card-title" style="color: #166534;">
+            <span>🛡️</span> Verified Indian Statutes Cited (Zero-Hallucination Audit)
+          </div>
+          <div id="statutes-badge-list"></div>
+          <p class="disclaimer-note">
+            <strong>Mandatory Legal Information Notice:</strong> NyayaSetu is an educational and self-help dispute resolution drafting aid under the laws of the Republic of India. It does not establish an advocate-client relationship. For formal High Court litigation, criminal trials, or matrimonial proceedings, consult a licensed Bar Council advocate or contact the National Legal Services Authority (NALSA) toll-free helpline at <strong>15100</strong>.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    let testCases = [];
+    let currentResult = null;
+    let activeDocTab = 'legal_notice';
+    let recognition = null;
+    let isListening = false;
+
+    // Load test cases on startup
+    window.addEventListener('DOMContentLoaded', async () => {
+      try {
+        const resp = await fetch('/api/test_cases');
+        testCases = await resp.json();
+      } catch (e) {
+        console.error('Failed to load test cases', e);
+      }
+
+      // Check Speech Recognition support
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (SpeechRecognition) {
+        recognition = new SpeechRecognition();
+        recognition.continuous = true;
+        recognition.interimResults = false;
+        recognition.lang = 'en-IN'; // Indian English / Hindi mix
+
+        recognition.onresult = (event) => {
+          let transcript = '';
+          for (let i = event.resultIndex; i < event.results.length; ++i) {
+            transcript += event.results[i][0].transcript + ' ';
+          }
+          const ta = document.getElementById('caseNarrative');
+          ta.value += transcript;
+        };
+
+        recognition.onerror = (e) => {
+          console.warn('Speech recognition error', e);
+          stopListening();
+        };
+
+        recognition.onend = () => {
+          if (isListening) stopListening();
+        };
+      } else {
+        document.getElementById('voiceBtn').style.display = 'none';
+      }
+
+      // Listen to model select changes
+      document.getElementById('modelSelect').addEventListener('change', (e) => {
+        const keyInput = document.getElementById('apiKeyInput');
+        if (e.target.value !== 'deterministic') {
+          keyInput.style.display = 'inline-block';
+        } else {
+          keyInput.style.display = 'none';
+        }
+      });
+    });
+
+    function toggleVoiceInput() {
+      if (!recognition) return;
+      if (isListening) {
+        stopListening();
+      } else {
+        startListening();
+      }
+    }
+
+    function startListening() {
+      isListening = true;
+      recognition.start();
+      const btn = document.getElementById('voiceBtn');
+      btn.classList.add('listening');
+      document.getElementById('micText').innerText = 'Listening... (Speak)';
+    }
+
+    function stopListening() {
+      isListening = false;
+      try { recognition.stop(); } catch (e) {}
+      const btn = document.getElementById('voiceBtn');
+      btn.classList.remove('listening');
+      document.getElementById('micText').innerText = 'Voice Input';
+    }
+
+    function loadPreset(index) {
+      if (!testCases || !testCases[index]) return;
+      const tc = testCases[index];
+      document.getElementById('caseNarrative').value = tc.narrative;
+      
+      // Highlight button
+      const btns = document.querySelectorAll('.preset-btn');
+      btns.forEach((b, i) => {
+        if (i === index) b.classList.add('active');
+        else b.classList.remove('active');
+      });
+
+      // Auto analyze for quick preview
+      analyzeCase();
+    }
+
+    async function analyzeCase() {
+      const narrative = document.getElementById('caseNarrative').value.trim();
+      if (!narrative) {
+        alert('Please describe your dispute or select a benchmark scenario above.');
+        return;
+      }
+
+      const lang = document.getElementById('langSelect').value;
+      const model = document.getElementById('modelSelect').value;
+      const apiKey = document.getElementById('apiKeyInput').value;
+
+      const btn = document.getElementById('analyzeBtn');
+      btn.disabled = true;
+      btn.innerText = 'Analyzing Case & Building Strategy...';
+
+      try {
+        const resp = await fetch('/api/analyze', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ narrative, language: lang, model, api_key: apiKey })
+        });
+
+        const data = await resp.json();
+        currentResult = data;
+        renderResults(data);
+      } catch (err) {
+        alert('Error processing case: ' + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<span>Build Case & Generate Notice</span> ➔';
+      }
+    }
+
+    function renderResults(data) {
+      const resultsArea = document.getElementById('results-area');
+      const scopeAlert = document.getElementById('scope-alert');
+      const successResults = document.getElementById('success-results');
+
+      resultsArea.style.display = 'block';
+
+      if (data.status === 'out_of_scope') {
+        scopeAlert.style.display = 'block';
+        successResults.style.display = 'none';
+        document.getElementById('scope-alert-title').innerText = '⚠️ SCOPE BOUNDARY NOTICE';
+        document.getElementById('scope-alert-msg').innerText = data.message;
+        resultsArea.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+
+      scopeAlert.style.display = 'none';
+      successResults.style.display = 'block';
+
+      // 1. Metrics
+      const cs = data.case_sheet;
+      document.getElementById('val-amount').innerText = `₹${(cs.principal_claim_amount || 0).toLocaleString('en-IN')}`;
+      document.getElementById('val-respondent').innerText = `Respondent: ${cs.respondent || 'Opposite Party'}`;
+      document.getElementById('val-exposure').innerText = `₹${(cs.total_financial_exposure || 0).toLocaleString('en-IN')}`;
+      document.getElementById('val-readiness').innerText = `${cs.readiness_score || 0}%`;
+      document.getElementById('val-readiness-bar').style.width = `${cs.readiness_score || 0}%`;
+
+      // 2. Evidence Lists
+      const foundUl = document.getElementById('proof-found-list');
+      foundUl.innerHTML = '';
+      if (cs.proof_available && cs.proof_available.length > 0) {
+        cs.proof_available.forEach(item => {
+          foundUl.innerHTML += `<li><span style="color:var(--success);">✓</span> ${item}</li>`;
+        });
+      } else {
+        foundUl.innerHTML = '<li style="color:var(--text-muted);">None explicitly mentioned. Add receipts or chats.</li>';
+      }
+
+      const missingUl = document.getElementById('proof-missing-list');
+      missingUl.innerHTML = '';
+      if (cs.missing_proof_checklist && cs.missing_proof_checklist.length > 0) {
+        cs.missing_proof_checklist.forEach(item => {
+          missingUl.innerHTML += `<li><span style="color:var(--accent);">⚠️</span> ${item}</li>`;
+        });
+      } else {
+        missingUl.innerHTML = '<li style="color:var(--success);">All recommended proofs are present!</li>';
+      }
+
+      // 3. Plain Language Rights & Escalation
+      const rx = data.rights_explainer;
+      document.getElementById('plain-standing-summary').innerText = rx.standing_summary || '';
+
+      const roadmapDiv = document.getElementById('escalation-roadmap');
+      roadmapDiv.innerHTML = '';
+      if (rx.escalation_path) {
+        rx.escalation_path.forEach(step => {
+          roadmapDiv.innerHTML += `
+            <div class="roadmap-step">
+              <div class="roadmap-step-title">${step.tier}</div>
+              <div class="roadmap-step-action">${step.action}</div>
+              <div class="roadmap-step-meta">
+                <span>💡 <strong>Why it works:</strong> ${step.why_it_works}</span>
+                <span>💰 <strong>Cost:</strong> ${step.cost}</span>
+              </div>
+            </div>
+          `;
+        });
+      }
+
+      // 4. Document Drafting
+      switchDocTab(activeDocTab);
+
+      // 5. Devil's Advocate Roleplay
+      const rpDiv = document.getElementById('roleplay-container');
+      rpDiv.innerHTML = '';
+      const scenarios = data.roleplay_scenarios || [];
+      const currentLang = document.getElementById('langSelect').value;
+
+      scenarios.forEach((sc, i) => {
+        const rebuttalText = currentLang === 'hinglish' ? sc.rebuttal_hinglish : sc.rebuttal_english;
+        rpDiv.innerHTML += `
+          <div class="roleplay-card">
+            <div class="objection-bubble">
+              😠 <strong>Hostile Objection from Opposite Party:</strong><br>
+              "${sc.objection}"
+            </div>
+            <div class="rebuttal-box">
+              <strong>🛡️ Your Recommended Counter-Argument / Rebuttal:</strong>
+              "${rebuttalText}"
+              <div><span class="rebuttal-anchor">Statute: ${sc.statutory_anchor || 'Consumer Protection Act'}</span></div>
+            </div>
+          </div>
+        `;
+      });
+
+      // 6. Statutory Badges
+      const badgesDiv = document.getElementById('statutes-badge-list');
+      badgesDiv.innerHTML = '';
+      const statutes = data.statutory_references || [];
+      statutes.forEach(s => {
+        badgesDiv.innerHTML += `<span class="statute-tag">📜 ${s.act} (${s.section})</span>`;
+      });
+
+      resultsArea.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function switchDocTab(tabKey) {
+      activeDocTab = tabKey;
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      tabBtns.forEach(btn => btn.classList.remove('active'));
+      
+      const tabKeys = ['legal_notice', 'consumer_petition', 'nch_grievance', 'whatsapp_escalation'];
+      const activeIndex = tabKeys.indexOf(tabKey);
+      if (activeIndex >= 0 && tabBtns[activeIndex]) {
+        tabBtns[activeIndex].classList.add('active');
+      }
+
+      if (!currentResult || !currentResult.legal_drafts) return;
+      const docBox = document.getElementById('docDisplayBox');
+      docBox.innerText = currentResult.legal_drafts[tabKey] || 'Document not generated.';
+    }
+
+    function copyDocument() {
+      const docBox = document.getElementById('docDisplayBox');
+      navigator.clipboard.writeText(docBox.innerText).then(() => {
+        alert('Document copied to clipboard!');
+      });
+    }
+
+    function downloadDocument() {
+      const docBox = document.getElementById('docDisplayBox');
+      const text = docBox.innerText;
+      const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `nyayasetu_${activeDocTab}.txt`;
+      a.click();
+    }
+  </script>
+</body>
+</html>

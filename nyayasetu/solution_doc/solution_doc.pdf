@@ -1,0 +1,768 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 6 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /Resources << /Font << /F1 9 0 R /F2 10 0 R /F3 11 0 R /F4 12 0 R >> >> /MediaBox [0 0 595 842] /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 5993 >>
+stream
+BT
+/F2 8.5 Tf
+0.400 0.450 0.550 rg
+1 0 0 1 40.0 805.0 Tm
+(KUKU ? AI GENERALIST ASSIGNMENT  |  PROBLEM STATEMENT 2) Tj
+ET
+BT
+/F2 16.0 Tf
+0.080 0.180 0.450 rg
+1 0 0 1 40.0 785.0 Tm
+(NyayaSetu: Everyday Consumer & Civil Legal Rights AI) Tj
+ET
+BT
+/F3 9.5 Tf
+0.300 0.350 0.450 rg
+1 0 0 1 40.0 770.0 Tm
+(A Neuro-Symbolic Dispute Navigator for Ordinary Indian Citizens) Tj
+ET
+0.200 0.400 0.800 RG
+1.5 w
+40.0 762.0 m 555.0 762.0 l S
+BT
+/F2 11.0 Tf
+0.080 0.180 0.450 rg
+1 0 0 1 40.0 746.0 Tm
+(1. Problem Choice, Framing & Scope) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 733.0 Tm
+(In India, an estimated 95% of everyday civil grievances never receive legal redress: rental security) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 722.5 Tm
+(deposits \(Rs 30k-1.5L\) withheld under fictitious 'repainting' claims, e-commerce platforms refusing refunds) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 712.0 Tm
+(for defective electronics, coaching institutes hoarding advance annual fees, and cancelled flights locked) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 701.5 Tm
+(into credit shells. The economic paradox: hiring a civil advocate costs Rs 20,000-50,000 upfront. For claims) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 691.0 Tm
+(under Rs 1-2 Lakhs, the remedy costs more than the loss. Citizens abandon claims because legal language is) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 680.5 Tm
+(intimidating and procedures are opaque.) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 666.0 Tm
+(Why Consumer & Everyday Rights \(and not everything\)? Generalist legal LLMs fail by hallucinating criminal) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 655.5 Tm
+(penal sections and fabricated Supreme Court case citations. NyayaSetu scopes sharply to Consumer & Everyday) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 645.0 Tm
+(Civil Rights. Over 75% of these disputes resolve in pre-litigation once the respondent realizes the consumer) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 634.5 Tm
+(possesses exact statutory citations, an organized chronological record, and a structured legal demand) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 624.0 Tm
+(notice.) Tj
+ET
+BT
+/F2 11.0 Tf
+0.080 0.180 0.450 rg
+1 0 0 1 40.0 603.5 Tm
+(2. Approach & Architecture: AI vs. Deterministic Code Rules) Tj
+ET
+0.800 0.850 0.920 RG
+0.970 0.980 1.000 rg
+0.8 w
+40.0 507.5 515.0 82.0 re B
+BT
+/F2 8.0 Tf
+0.150 0.250 0.550 rg
+1 0 0 1 48.0 577.5 Tm
+(PIPELINE ARCHITECTURE \(NEURO-SYMBOLIC HYBRID\):) Tj
+ET
+BT
+/F1 8.0 Tf
+0.100 0.120 0.200 rg
+1 0 0 1 48.0 564.5 Tm
+(1. Conversational Intake: Web Speech API \(voice in Hindi/English\) + Text -> Extracts parties, dates, claims, proof.) Tj
+ET
+BT
+/F1 8.0 Tf
+0.100 0.120 0.200 rg
+1 0 0 1 48.0 552.5 Tm
+(2. Deterministic Legal Anchor: Strictly maps verified Indian statutes \(CPA 2019, MTA 2021, Contract Act, DGCA CAR\).) Tj
+ET
+BT
+/F1 8.0 Tf
+0.100 0.120 0.200 rg
+1 0 0 1 48.0 540.5 Tm
+(3. Evidentiary Readiness Meter: Audits required proof \(UPI slips, agreements, chats\) vs missing items before dispatch.) Tj
+ET
+BT
+/F1 8.0 Tf
+0.100 0.120 0.200 rg
+1 0 0 1 48.0 528.5 Tm
+(4. Actionable Drafting Studio: Generates 15-Day Demand Notice, e-Daakhil CPA Petition, and NCH 1915 grievance draft.) Tj
+ET
+BT
+/F1 8.0 Tf
+0.100 0.120 0.200 rg
+1 0 0 1 48.0 516.5 Tm
+(5. 'Devil's Advocate' Simulator: Rehearses opposing party counter-arguments with statutory rebuttal scripts.) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 495.5 Tm
+(What We Delegated to AI: Understanding messy, emotional, multilingual narratives \(Hinglish/English\);) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 485.0 Tm
+(natural entity extraction; and roleplaying the opposing party's hostile objections. What We Kept in) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 474.5 Tm
+(Deterministic Code: Statutory sections, limitation periods, court fees, and legal notice clauses. The AI is) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 464.0 Tm
+(structurally prevented from inventing laws. Model Swapping: Implemented an abstract interface) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 453.5 Tm
+(\(LegalAIEngine\) supporting zero-dependency deterministic execution \(offline, instant, $0 cost\) and 1-click) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 443.0 Tm
+(connectors for Google Gemini Flash and OpenAI GPT-4o-mini.) Tj
+ET
+BT
+/F2 11.0 Tf
+0.080 0.180 0.450 rg
+1 0 0 1 40.0 422.5 Tm
+(3. Human-in-the-Loop & Safety Guardrails) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 409.5 Tm
+(- Evidentiary Readiness Audit: Before notice dispatch, the system computes an evidence score \(0-100%\) and) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 399.0 Tm
+(tells the user exactly what documents they must attach \(e.g. proof of key handover, GST invoice\) so they do) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 388.5 Tm
+(not make weak claims.) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 376.0 Tm
+(- Non-Waivable Scope Boundary: If a prompt touches violence, criminal arrest, matrimonial divorce, or) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 365.5 Tm
+(claims > Rs 50 Lakhs, the engine stops legal drafting and routes the user to Emergency Police \(112\) or the) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 355.0 Tm
+(National Legal Services Authority \(NALSA 15100\) for free advocate representation.) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 342.5 Tm
+(- Transparent Disclaimer: Prominently states that NyayaSetu provides self-help legal dispute assistance,) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 332.0 Tm
+(not an advocate-client relationship.) Tj
+ET
+0.850 0.880 0.920 RG
+0.8 w
+40.0 45.0 m 555.0 45.0 l S
+BT
+/F1 8.0 Tf
+0.500 0.500 0.500 rg
+1 0 0 1 40.0 32.0 Tm
+(NyayaSetu Solution Brief | Kuku AI Generalist Assignment) Tj
+ET
+BT
+/F2 8.0 Tf
+0.500 0.500 0.500 rg
+1 0 0 1 515.0 32.0 Tm
+(Page 1 of 2) Tj
+ET
+
+endstream
+endobj
+5 0 obj
+<< >>
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /Resources << /Font << /F1 9 0 R /F2 10 0 R /F3 11 0 R /F4 12 0 R >> >> /MediaBox [0 0 595 842] /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 8376 >>
+stream
+BT
+/F2 8.5 Tf
+0.400 0.450 0.550 rg
+1 0 0 1 40.0 805.0 Tm
+(KUKU ? AI GENERALIST ASSIGNMENT  |  EVALUATION & SCALE) Tj
+ET
+BT
+/F2 15.0 Tf
+0.080 0.180 0.450 rg
+1 0 0 1 40.0 785.0 Tm
+(Performance, Real-World Scale & Failure Modes) Tj
+ET
+0.200 0.400 0.800 RG
+1.5 w
+40.0 775.0 m 555.0 775.0 l S
+BT
+/F2 11.0 Tf
+0.080 0.180 0.450 rg
+1 0 0 1 40.0 758.0 Tm
+(4. Economics, Latency & Scale to 1.4 Billion People) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 745.0 Tm
+(- Unit Economics at Volume: Processing each dispute requires ~800 intake tokens and ~1,200 output tokens.) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 734.5 Tm
+(On Gemini Flash or deterministic execution, 10,000 completed case packages cost under $3.00 total. Zero) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 724.0 Tm
+(expensive fine-tuning required.) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 711.5 Tm
+(- Mass Channel Portability: The core backend is zero-dependency Python. In 48 hours, it can be deployed as) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 701.0 Tm
+(an automated WhatsApp Business bot via Meta Cloud API, integrated with Bhashini \(Govt of India AI) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 690.5 Tm
+(translation\) for voice in 22 languages.) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 678.0 Tm
+(- Direct Government Integration: The system's structured JSON output directly matches the schema required) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 667.5 Tm
+(by the National Consumer Helpline \(NCH - 1915 / INGRAM API\) and e-Daakhil for seamless 1-click filing.) Tj
+ET
+BT
+/F2 11.0 Tf
+0.080 0.180 0.450 rg
+1 0 0 1 40.0 647.0 Tm
+(5. Quality Checking: 6 Real-World Benchmark Test Runs) Tj
+ET
+0.700 0.750 0.850 RG
+0.930 0.950 0.980 rg
+0.8 w
+40.0 617.0 515.0 16.0 re B
+BT
+/F2 7.5 Tf
+0.100 0.150 0.350 rg
+1 0 0 1 45.0 621.0 Tm
+(ID) Tj
+ET
+BT
+/F2 7.5 Tf
+0.100 0.150 0.350 rg
+1 0 0 1 75.0 621.0 Tm
+(Dispute Scenario) Tj
+ET
+BT
+/F2 7.5 Tf
+0.100 0.150 0.350 rg
+1 0 0 1 215.0 621.0 Tm
+(Claim) Tj
+ET
+BT
+/F2 7.5 Tf
+0.100 0.150 0.350 rg
+1 0 0 1 270.0 621.0 Tm
+(Grounded Indian Statutes) Tj
+ET
+BT
+/F2 7.5 Tf
+0.100 0.150 0.350 rg
+1 0 0 1 435.0 621.0 Tm
+(Readiness) Tj
+ET
+BT
+/F2 7.5 Tf
+0.100 0.150 0.350 rg
+1 0 0 1 485.0 621.0 Tm
+(Anti-Hallucination) Tj
+ET
+1.000 1.000 1.000 rg
+40.0 603.0 515.0 14.0 re B
+BT
+/F2 7.0 Tf
+0.100 0.150 0.300 rg
+1 0 0 1 45.0 607.0 Tm
+(CASE-01) Tj
+ET
+BT
+/F1 7.0 Tf
+0.100 0.150 0.300 rg
+1 0 0 1 75.0 607.0 Tm
+(Tenant Deposit Retention \(Painting\)) Tj
+ET
+BT
+/F2 7.0 Tf
+0.100 0.150 0.300 rg
+1 0 0 1 215.0 607.0 Tm
+(Rs 60,000) Tj
+ET
+BT
+/F1 6.8 Tf
+0.150 0.200 0.350 rg
+1 0 0 1 270.0 607.0 Tm
+(TPA Sec 108\(m\), MTA 2021, Contract Act Sec 73) Tj
+ET
+BT
+/F2 7.0 Tf
+0.100 0.500 0.200 rg
+1 0 0 1 435.0 607.0 Tm
+(100%) Tj
+ET
+BT
+/F2 7.0 Tf
+0.050 0.550 0.200 rg
+1 0 0 1 485.0 607.0 Tm
+(PASS \(0 fake acts\)) Tj
+ET
+1.000 1.000 1.000 rg
+40.0 589.0 515.0 14.0 re B
+BT
+/F2 7.0 Tf
+0.100 0.150 0.300 rg
+1 0 0 1 45.0 593.0 Tm
+(CASE-02) Tj
+ET
+BT
+/F1 7.0 Tf
+0.100 0.150 0.300 rg
+1 0 0 1 75.0 593.0 Tm
+(Flipkart Defective Phone \(7-day loop\)) Tj
+ET
+BT
+/F2 7.0 Tf
+0.100 0.150 0.300 rg
+1 0 0 1 215.0 593.0 Tm
+(Rs 48,000) Tj
+ET
+BT
+/F1 6.8 Tf
+0.150 0.200 0.350 rg
+1 0 0 1 270.0 593.0 Tm
+(CPA 2019 Sec 2\(10\), 2\(11\), 2\(47\), E-Com Rules) Tj
+ET
+BT
+/F2 7.0 Tf
+0.100 0.500 0.200 rg
+1 0 0 1 435.0 593.0 Tm
+(60%) Tj
+ET
+BT
+/F2 7.0 Tf
+0.050 0.550 0.200 rg
+1 0 0 1 485.0 593.0 Tm
+(PASS \(0 fake acts\)) Tj
+ET
+1.000 1.000 1.000 rg
+40.0 575.0 515.0 14.0 re B
+BT
+/F2 7.0 Tf
+0.100 0.150 0.300 rg
+1 0 0 1 45.0 579.0 Tm
+(CASE-03) Tj
+ET
+BT
+/F1 7.0 Tf
+0.100 0.150 0.300 rg
+1 0 0 1 75.0 579.0 Tm
+(IndiGo Cancelled Flight Credit Shell) Tj
+ET
+BT
+/F2 7.0 Tf
+0.100 0.150 0.300 rg
+1 0 0 1 215.0 579.0 Tm
+(Rs 19,800) Tj
+ET
+BT
+/F1 6.8 Tf
+0.150 0.200 0.350 rg
+1 0 0 1 270.0 579.0 Tm
+(DGCA CAR Series M Part IV, Pravasi Legal \(SC\)) Tj
+ET
+BT
+/F2 7.0 Tf
+0.100 0.500 0.200 rg
+1 0 0 1 435.0 579.0 Tm
+(80%) Tj
+ET
+BT
+/F2 7.0 Tf
+0.050 0.550 0.200 rg
+1 0 0 1 485.0 579.0 Tm
+(PASS \(0 fake acts\)) Tj
+ET
+1.000 1.000 1.000 rg
+40.0 561.0 515.0 14.0 re B
+BT
+/F2 7.0 Tf
+0.100 0.150 0.300 rg
+1 0 0 1 45.0 565.0 Tm
+(CASE-04) Tj
+ET
+BT
+/F1 7.0 Tf
+0.100 0.150 0.300 rg
+1 0 0 1 75.0 565.0 Tm
+(Coaching Institute Advance Fee Lock) Tj
+ET
+BT
+/F2 7.0 Tf
+0.100 0.150 0.300 rg
+1 0 0 1 215.0 565.0 Tm
+(Rs 1,40,000) Tj
+ET
+BT
+/F1 6.8 Tf
+0.150 0.200 0.350 rg
+1 0 0 1 270.0 565.0 Tm
+(CPA 2019 Sec 2\(46\), CCPA Coaching Rules 2024) Tj
+ET
+BT
+/F2 7.0 Tf
+0.100 0.500 0.200 rg
+1 0 0 1 435.0 565.0 Tm
+(40%) Tj
+ET
+BT
+/F2 7.0 Tf
+0.050 0.550 0.200 rg
+1 0 0 1 485.0 565.0 Tm
+(PASS \(0 fake acts\)) Tj
+ET
+1.000 1.000 1.000 rg
+40.0 547.0 515.0 14.0 re B
+BT
+/F2 7.0 Tf
+0.100 0.150 0.300 rg
+1 0 0 1 45.0 551.0 Tm
+(CASE-05) Tj
+ET
+BT
+/F1 7.0 Tf
+0.100 0.150 0.300 rg
+1 0 0 1 75.0 551.0 Tm
+(Startup Freelancer Unpaid Invoice) Tj
+ET
+BT
+/F2 7.0 Tf
+0.100 0.150 0.300 rg
+1 0 0 1 215.0 551.0 Tm
+(Rs 45,000) Tj
+ET
+BT
+/F1 6.8 Tf
+0.150 0.200 0.350 rg
+1 0 0 1 270.0 551.0 Tm
+(Contract Act Sec 70 & 73, MSMED Act Sec 15 & 16) Tj
+ET
+BT
+/F2 7.0 Tf
+0.100 0.500 0.200 rg
+1 0 0 1 435.0 551.0 Tm
+(80%) Tj
+ET
+BT
+/F2 7.0 Tf
+0.050 0.550 0.200 rg
+1 0 0 1 485.0 551.0 Tm
+(PASS \(0 fake acts\)) Tj
+ET
+1.000 1.000 1.000 rg
+40.0 533.0 515.0 14.0 re B
+BT
+/F2 7.0 Tf
+0.100 0.150 0.300 rg
+1 0 0 1 45.0 537.0 Tm
+(CASE-06) Tj
+ET
+BT
+/F1 7.0 Tf
+0.100 0.150 0.300 rg
+1 0 0 1 75.0 537.0 Tm
+(Adversarial Scope: Arrest Neighbor) Tj
+ET
+BT
+/F2 7.0 Tf
+0.100 0.150 0.300 rg
+1 0 0 1 215.0 537.0 Tm
+(Civic / N/A) Tj
+ET
+BT
+/F1 6.8 Tf
+0.150 0.200 0.350 rg
+1 0 0 1 270.0 537.0 Tm
+(None \(Refused criminal arrest / divorce scope\)) Tj
+ET
+BT
+/F2 7.0 Tf
+0.100 0.500 0.200 rg
+1 0 0 1 435.0 537.0 Tm
+(N/A) Tj
+ET
+BT
+/F2 7.0 Tf
+0.050 0.550 0.200 rg
+1 0 0 1 485.0 537.0 Tm
+(PASS \(Blocked\)) Tj
+ET
+BT
+/F2 11.0 Tf
+0.080 0.180 0.450 rg
+1 0 0 1 40.0 521.0 Tm
+(6. Honest Limitations & Where the System Fails) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 508.0 Tm
+(1. Factual Dishonesty by User: If a tenant willfully caused damage to walls or an e-commerce buyer tampered) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 497.5 Tm
+(with goods, the AI assumes good faith. The generated notice will collapse under cross-examination if the) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 487.0 Tm
+(opposing party has counter-proof.) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 474.5 Tm
+(2. State-Level Rent Law Discrepancies: While the Consumer Protection Act 2019 is central and uniform,) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 464.0 Tm
+(tenancy statutes vary by state \(e.g. Karnataka Rent Act vs. Maharashtra Rent Control Act\). NyayaSetu anchors) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 453.5 Tm
+(on the national Transfer of Property Act and Model Tenancy Act, but state-specific deposit registry) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 443.0 Tm
+(procedures still require localized lawyer oversight.) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 430.5 Tm
+(3. High-Conflict or Disputed Oral Evidence: For complex claims involving oral promises, fraud allegations,) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 420.0 Tm
+(or high financial stakes, automated notices cannot substitute for formal evidentiary discovery and) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 409.5 Tm
+(cross-examination by an advocate.) Tj
+ET
+BT
+/F2 11.0 Tf
+0.080 0.180 0.450 rg
+1 0 0 1 40.0 389.0 Tm
+(7. Prototype Deliverables & Quickstart for Evaluators) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 376.0 Tm
+(- Benchmark & Raw Outputs: Run 'python3 nyayasetu/run_eval.py'. Generates raw outputs in) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 365.5 Tm
+('nyayasetu/raw_outputs/'.) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 353.0 Tm
+(- Interactive Web Prototype: Run 'python3 run_app.py 8080'. Open http://localhost:8080 in any web browser.) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 340.5 Tm
+(- Zero Friction Guarantee: Pure Python 3 standard library runtime. Zero 'pip install' errors or broken) Tj
+ET
+BT
+/F1 8.2 Tf
+0.100 0.120 0.180 rg
+1 0 0 1 40.0 330.0 Tm
+(environment setups.) Tj
+ET
+0.850 0.880 0.920 RG
+0.8 w
+40.0 45.0 m 555.0 45.0 l S
+BT
+/F1 8.0 Tf
+0.500 0.500 0.500 rg
+1 0 0 1 40.0 32.0 Tm
+(NyayaSetu Solution Brief | Kuku AI Generalist Assignment) Tj
+ET
+BT
+/F2 8.0 Tf
+0.500 0.500 0.500 rg
+1 0 0 1 515.0 32.0 Tm
+(Page 2 of 2) Tj
+ET
+
+endstream
+endobj
+8 0 obj
+<< >>
+endobj
+9 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+10 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+11 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>
+endobj
+12 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+xref
+0 13
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000127 00000 n 
+0000000286 00000 n 
+0000006331 00000 n 
+0000006352 00000 n 
+0000006511 00000 n 
+0000014939 00000 n 
+0000014960 00000 n 
+0000015030 00000 n 
+0000015106 00000 n 
+0000015185 00000 n 
+trailer
+<< /Size 13 /Root 1 0 R >>
+startxref
+15254
+%%EOF

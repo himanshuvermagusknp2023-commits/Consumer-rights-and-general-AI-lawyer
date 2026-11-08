@@ -1,0 +1,9 @@
+{
+  "case_id": "CASE-03",
+  "title": "Airline Cancellation & Forcible Credit Shell Lock-in",
+  "category": "airline_flight_refund",
+  "location": "New Delhi / Mumbai",
+  "claimant": "Vikramaditya Sen",
+  "respondent": "InterGlobe Aviation Ltd. (IndiGo Airlines)",
+  "narrative": "I booked return flight tickets from Delhi to Bengaluru for myself and my elderly mother on September 12, 2024 for travel on October 20, paying ₹19,800 via credit card (PNR: 6E-XK8912). On October 19, just 14 hours before scheduled departure, IndiGo sent an SMS stating the flight was cancelled due to 'operational and aircraft rotation constraints'. When I requested an immediate bank refund, IndiGo automatically transferred the ₹19,800 into an 'IndiGo Credit Shell' wallet account, valid only for 6 months. When I called their customer service helpline, they informed me that tickets booked under economy saver fare cannot be refunded to the bank account and credit shells cannot be converted to cash under any circumstances. I was forced to spend ₹34,000 on last-minute tickets on another carrier. I have the booking ticket, credit card deduction receipt, IndiGo cancellation SMS, and written chat logs with IndiGo customer care."
+}

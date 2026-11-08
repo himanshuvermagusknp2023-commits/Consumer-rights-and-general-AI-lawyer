@@ -1,0 +1,151 @@
+{
+  "status": "success",
+  "model_used": "Deterministic Expert Rule Engine (Zero Hallucination Anchor)",
+  "fallback_note": null,
+  "category": "ecommerce_defective_goods",
+  "domain_title": "E-Commerce & Defective Goods",
+  "case_sheet": {
+    "category": "ecommerce_defective_goods",
+    "dispute_summary": "I purchased a brand new smartphone worth ₹48,000 on Flipkart on October 2, 2024 (Order ID: OD328919283719) delivered on October 5",
+    "claimant_type": "Aggrieved Consumer / Tenant / Service Recipient",
+    "respondent": "Flipkart Internet Pvt. Ltd. & Merchant",
+    "principal_claim_amount": 48000,
+    "interest_claimed": "12% per annum from due date until realization",
+    "compensation_claimed": "₹15,000 - ₹25,000 for mental agony, harassment, and litigation expenses",
+    "total_financial_exposure": 63000,
+    "chronology": [
+      "Event 1: I purchased a brand new smartphone worth ₹48,000 on Flipkart on October 2, 2024 (Order ID: OD328919283719) delivered on October 5",
+      "Event 2: Upon unboxing and turning on the phone, I noticed a bright vertical green line on the AMOLED display and extreme battery heating during setup",
+      "Event 3: I immediately raised a replacement request on October 6 (Day 2 of delivery)",
+      "Event 4: Flipkart assigned a technician visit for October 8, but the technician never showed up",
+      "Event 5: Flipkart rescheduled the visit twice, and on October 14, they abruptly marked my complaint as 'Closed - 7-day return window expired'",
+      "Event 6: When I called customer care, the executive said 'Company policy does not allow refunds or replacements after 7 days from delivery"
+    ],
+    "proof_available": [
+      "Written Agreement / Contract / Terms",
+      "Invoice / Bill / Booking ID",
+      "Photographic / Video Evidence"
+    ],
+    "missing_proof_checklist": [
+      "Payment Proof / Bank Statement / UPI Slip",
+      "Written Communication / WhatsApp / Email",
+      "Service Complaint / Ticket Number"
+    ],
+    "readiness_score": 60,
+    "raw_narrative": "I purchased a brand new smartphone worth ₹48,000 on Flipkart on October 2, 2024 (Order ID: OD328919283719) delivered on October 5. Upon unboxing and turning on the phone, I noticed a bright vertical green line on the AMOLED display and extreme battery heating during setup. I immediately raised a replacement request on October 6 (Day 2 of delivery). Flipkart assigned a technician visit for October 8, but the technician never showed up. Flipkart rescheduled the visit twice, and on October 14, they abruptly marked my complaint as 'Closed - 7-day return window expired'. When I called customer care, the executive said 'Company policy does not allow refunds or replacements after 7 days from delivery. You have to visit the brand authorized service center.' The brand service center refused warranty repair claiming the device was received DOA (Dead On Arrival) from the merchant. Now both Flipkart and the seller are deflecting responsibility. I have the GST tax invoice, unboxing video showing the green line at first boot, screenshots of the rescheduled technician appointments, and call recordings."
+  },
+  "rights_explainer": {
+    "domain": "E-Commerce & Defective Goods",
+    "standing_summary": "You have a strong legal standing under Indian civil and consumer law. Under E-Commerce & Defective Goods, withholding your legitimate funds of ₹48,000 or failing to deliver contracted quality is legally actionable. Indian law does not allow unilateral contract clauses or arbitrary forfeitures.",
+    "key_rights": [
+      "**Consumer Protection Act, 2019 (Section 2(10))**: Goods received damaged or with manufacturing defects fall squarely under Section 2(10).",
+      "**Consumer Protection Act, 2019 (Section 2(11))**: Refusing refund, delaying technician inspections, or closing tickets unilaterally constitutes deficiency in service.",
+      "**Consumer Protection Act, 2019 (Section 2(47))**: Hiding behind 'replacement only' when replacement is unfulfilled is an unfair trade practice.",
+      "**Consumer Protection (E-Commerce) Rules, 2020 (Rule 5 & Rule 6)**: E-commerce platform must disclose details of seller and grievance redressal officer.",
+      "**Consumer Protection Act, 2019 (Section 35)**: Remedies under Section 39 include refund of price paid, replacement, compensation for mental harassment, and litigation costs."
+    ],
+    "authorities": [
+      "National Consumer Helpline (NCH - 1915 / INGRAM portal)",
+      "District Consumer Disputes Redressal Commission (DCDRC) via e-Daakhil portal",
+      "Central Consumer Protection Authority (CCPA) for class-action unfair trade practices"
+    ],
+    "limitation_period": "2 years from the date on which the cause of action arose (Section 69 CPA 2019).",
+    "escalation_path": [
+      {
+        "tier": "Step 1: Formal Statutory Demand Notice (15-Day Cure Period)",
+        "action": "Dispatch a formal legal notice via Registered Post AD / Speed Post and Email. Give them 15 working days to refund ₹48,000 plus interest.",
+        "why_it_works": "Over 75% of Indian consumer & tenancy disputes settle at this stage once the opposite party sees precise statutory sections and realizes you are prepared to escalate.",
+        "cost": "₹0 to ₹50 (Speed post charges)"
+      },
+      {
+        "tier": "Step 2: National Consumer Helpline (NCH 1915) / Statutory Portal",
+        "action": "File a grievance on consumerhelpline.gov.in (Toll-Free 1915) or INGRAM portal.",
+        "why_it_works": "Government officers directly notify the nodal officer of the registered corporate entity, requiring a mandatory written status update within 30 days.",
+        "cost": "Free (Government initiative)"
+      },
+      {
+        "tier": "Step 3: Online e-Daakhil / District Consumer Commission (DCDRC)",
+        "action": "File an e-complaint on e-daakhil.nic.in before the District Consumer Forum. Under the Consumer Protection Act 2019, claims up to ₹5 Lakh have ZERO court fees.",
+        "why_it_works": "You do NOT need to hire an expensive advocate; consumers can represent themselves. The forum can award refund + 9-12% interest + compensation for mental harassment.",
+        "cost": "₹0 (for claims up to ₹5L), ₹200 for claims up to ₹10L"
+      }
+    ],
+    "realistic_timeline": "15 days for initial notice response; 30 to 45 days if escalated via NCH; 3 to 6 months for formal Consumer Commission order.",
+    "financial_outlook": "Eligible to claim full ₹48,000 + 9-12% annual interest + ₹15,000 to ₹25,000 for mental agony & litigation costs."
+  },
+  "legal_drafts": {
+    "legal_notice": "================================================================================\nFORMAL LEGAL DEMAND NOTICE (WITHOUT PREJUDICE)\nDISPATCHED VIA: REGISTERED POST WITH A.D. / SPEED POST & OFFICIAL EMAIL\n================================================================================\n\nDATE: 08 November, 2026\n\nTO:\nFlipkart Internet Pvt. Ltd. & Merchant\n[Full Registered Address / Corporate Office / Residential Address]\nEmail: [Official Email / Nodal Grievance Officer]\n\nFROM:\n[Complainant / Aggrieved Citizen Name]\n[Residential Address / Contact Phone / Email]\n\nSUBJECT:\nDEMAND NOTICE FOR IMMEDIATE REFUND OF INR 48,000/- WITH ACCRUED INTEREST\nAND COMPENSATION FOR DEFICIENCY IN SERVICE, WRONGFUL RETENTION, AND UNFAIR TRADE PRACTICE.\n\nSIR / MADAM,\n\nUnder explicit instructions and on behalf of my client / self, the present Legal Notice is hereby served upon you:\n\n1. FACTUAL BACKGROUND & TRANSACTION DETAILS:\n   a) That the Claimant entered into a valid and lawful commercial/tenancy/service transaction with you, wherein full payment/deposit of INR 48,000/- was duly remitted.\n   b) I purchased a brand new smartphone worth ₹48,000 on Flipkart on October 2, 2024 (Order ID: OD328919283719) delivered on October 5\n   c) That despite multiple written communications, emails, and follow-ups, you have wilfully failed, neglected, and refused to remediate the defect / return the legitimate funds due to the Claimant.\n\n2. STATUTORY VIOLATIONS & LEGAL GROUNDS:\n   Under Section 2(10), Section 2(11), and Section 2(47) of the Consumer Protection Act, 2019, supplying defective goods and refusing timely refund/replacement within statutory periods constitutes Gross Deficiency in Service and Unfair Trade Practice, attracting punitive liability under Section 39 and Section 85 of the Act.\n\n3. WRONGFUL RETENTION & DAMAGES:\n   By virtue of your arbitrary conduct, the Claimant has suffered severe financial distress, inconvenience, and mental agony. You have illegally retained money that does not belong to you, depriving the Claimant of its rightful use.\n\n4. REQUISITE DEMANDS & 15-DAY CURE NOTICE:\n   You are hereby formally called upon to:\n   i. Immediately refund the principal amount of INR 48,000/- (Indian Rupees 48,000 only) into the Claimant's designated bank account within 15 (FIFTEEN) DAYS of the receipt of this Notice;\n   ii. Pay interest calculated at the rate of 12% per annum from the date the amount fell due until the date of actual payment;\n   iii. Pay an amount of INR 15,000/- towards damages for mental harassment and costs incurred in issuing this formal notice.\n\nTAKE NOTICE that if you fail to comply with the legitimate demands set forth above within the stipulated period of 15 days, the Claimant shall be constrained to institute appropriate legal proceedings against you, including filing a formal Consumer Complaint under Section 35 of the Consumer Protection Act, 2019 before the Competent District Consumer Disputes Redressal Commission / Civil Court of competent jurisdiction, entirely at your sole risk, cost, and consequences.\n\nA copy of this Legal Notice is retained in records for future legal proceedings.\n\nYours faithfully,\n\n_____________________________\n[Complainant / Authorized Signatory]\nEnclosures:\n1. Proof of Payment / Bank Statement\n2. Written Agreement / Booking Confirmation\n3. Relevant WhatsApp / Email Communication Records\n================================================================================",
+    "consumer_petition": "BEFORE THE HON'BLE DISTRICT CONSUMER DISPUTES REDRESSAL COMMISSION\nAT: [DISTRICT NAME, STATE]\n\nCONSUMER COMPLAINT NO. ________ / 2026\n(Under Section 35 of the Consumer Protection Act, 2019)\n\nIN THE MATTER OF:\n[Complainant Name]\nS/o or D/o ________________\nResiding at: [Complete Address]\nContact: [Mobile & Email]                                ... COMPLAINANT\n\nVERSUS\n\nFlipkart Internet Pvt. Ltd. & Merchant\nHaving Office at: [Complete Registered Address]\nRepresented by its Authorized Signatory/Manager         ... OPPOSITE PARTY\n\nMEMORANDUM OF COMPLAINT UNDER SECTION 35 OF THE CONSUMER PROTECTION ACT, 2019\n\nMOST RESPECTFULLY SHOWETH:\n\n1. PARTICULARS OF PARTIES & JURISDICTION:\n   The Complainant is a 'Consumer' within the meaning of Section 2(7) of the Consumer Protection Act, 2019. The Opposite Party is a service provider / seller / trader. The transaction took place within the territorial jurisdiction of this Hon'ble Commission, and the total claim amount is below INR 50,00,000/-, conferring complete pecuniary jurisdiction under Section 34 of the Act.\n\n2. BRIEF FACTS OF THE CASE:\n   a) The Complainant availed services / purchased goods from the Opposite Party for a total consideration of INR 48,000/-.\n   b) I purchased a brand new smartphone worth ₹48,000 on Flipkart on October 2, 2024 (Order ID: OD328919283719) delivered on October 5\n   c) The Opposite Party failed to honor warranty/return/refund obligations, despite service of a formal 15-day Demand Notice dated [Notice Date].\n\n3. DEFICIENCY IN SERVICE & UNFAIR TRADE PRACTICE:\n   The acts and omissions of the Opposite Party constitute 'Deficiency in Service' as defined under Section 2(11) and 'Unfair Trade Practice' under Section 2(47) of the Act.\n\n4. PRAYER / RELIEFS SOUGHT:\n   It is therefore most respectfully prayed that this Hon'ble Commission may be pleased to:\n   a) Direct the Opposite Party to refund the principal amount of INR 48,000/- along with interest @ 12% p.a.;\n   b) Award compensation of INR 25,000/- towards mental harassment, emotional trauma, and financial loss;\n   c) Award litigation costs of INR 10,000/-;\n   d) Pass any other order deemed fit in the interest of justice.\n\nPLACE: _____________________\nDATE:  _____________________                           COMPLAINANT IN PERSON\n\nVERIFICATION:\nI, the Complainant above named, do hereby verify that the contents of paragraphs 1 to 4 are true and correct to my personal knowledge. Verified at [City] on this day of November, 2026.\n\nDEPONENT\n",
+    "nch_grievance": "NATIONAL CONSUMER HELPLINE (NCH 1915 / INGRAM) GRIEVANCE SUBMISSION:\n------------------------------------------------------------------------\nCompany/Entity Name : Flipkart Internet Pvt. Ltd. & Merchant\nCategory            : Consumer Grievance / Non-Refund / Deficiency in Service\nTransaction Value   : INR 48,000/-\nGrievance Brief     :\nI purchased a brand new smartphone worth ₹48,000 on Flipkart on October 2, 2024 (Order ID: OD328919283719) delivered on October 5. Despite repeated follow-ups and service of a 15-day demand notice, the company has refused to process the legitimate refund of INR 48,000/-. This amounts to Deficiency in Service under Section 2(11) and Unfair Trade Practice under Section 2(47) of the Consumer Protection Act, 2019.\n\nRelief Sought       :\nImmediate refund of INR 48,000/- with interest, and closure of unauthorized deductions.\nAttachments Ready   : Tax Invoice / Rent Agreement, Payment Slips, Written Email & Chat Rejection Records.\n",
+    "whatsapp_escalation": "Dear Customer Escalation Team / Nodal Officer,\nRef: Order / Booking / Reference ID: [ID]\nDisputed Amount: ₹48,000\n\nDespite multiple follow-ups, my request for refund of ₹48,000 remains unresolved. Please note that under the Consumer Protection Act, 2019 (Sections 2(11) and 2(47)), failure to refund defective goods / cancelled services within statutory timelines constitutes Deficiency in Service.\n\nI request you to release the refund within 48 hours. In the absence of confirmation, I will be lodging a formal complaint with the National Consumer Helpline (NCH - 1915) and filing an e-complaint on the e-Daakhil portal.\n\nLooking forward to your swift resolution."
+  },
+  "roleplay_scenarios": [
+    {
+      "objection": "Our platform policy clearly states '7-day replacement only, strictly no refunds'. The 7-day window has expired, so the complaint is closed.",
+      "intent": "Invoking internal corporate policy to override statutory consumer rights.",
+      "rebuttal_english": "Internal company policy cannot override the Consumer Protection Act, 2019. Under Section 2(10) and 2(11), supplying a defective product and failing to replace or repair it within a reasonable time constitutes gross deficiency in service. Denying a refund when replacement fails is an Unfair Trade Practice under Section 2(47), for which the Central Consumer Protection Authority has repeatedly penalized e-commerce platforms.",
+      "rebuttal_hinglish": "Company ki internal policy Consumer Protection Act 2019 ke upar nahi ho sakti. Section 2(10) aur 2(11) ke tehat defective item dena aur replace na kar pana Deficiency in Service hai. Replacement fail hone ke baad refund refuse karna Section 2(47) mein Unfair Trade Practice hai.",
+      "statutory_anchor": "Consumer Protection Act 2019, Sec 2(11) & Sec 2(47)"
+    },
+    {
+      "objection": "We are only an online intermediary platform under Section 79 of the IT Act. We don't make or sell the product. You must contact the third-party seller directly.",
+      "intent": "Claiming intermediary safe harbor to dodge responsibility.",
+      "rebuttal_english": "Under Rule 5 and Rule 6 of the Consumer Protection (E-Commerce) Rules, 2020, marketplace platforms that collect payments, manage logistics, and handle customer communication have direct statutory liability to maintain a Grievance Redressal mechanism. You cannot claim intermediary safe harbor when you facilitate payment and fulfillment.",
+      "rebuttal_hinglish": "Consumer Protection (E-Commerce) Rules, 2020 ke tehat jo platform payment aur delivery collect karta hai, uski direct legal liability banti hai. Section 79 IT Act ka safe harbor consumer grievances mein platform ko bacha nahi sakta.",
+      "statutory_anchor": "Consumer Protection (E-Commerce) Rules 2020, Rule 5 & 6"
+    }
+  ],
+  "statutory_references": [
+    {
+      "act": "Consumer Protection Act, 2019",
+      "section": "Section 2(10)",
+      "title": "Definition of Defect",
+      "summary": "Any fault, imperfection or shortcoming in the quality, quantity, potency, purity or standard which is required to be maintained by or under any law.",
+      "rules": [
+        "Goods received damaged or with manufacturing defects fall squarely under Section 2(10)."
+      ]
+    },
+    {
+      "act": "Consumer Protection Act, 2019",
+      "section": "Section 2(11)",
+      "title": "Definition of Deficiency in Service",
+      "summary": "Any fault, imperfection, shortcoming or inadequacy in the quality, nature and manner of performance required to be maintained under contract or law.",
+      "rules": [
+        "Refusing refund, delaying technician inspections, or closing tickets unilaterally constitutes deficiency in service."
+      ]
+    },
+    {
+      "act": "Consumer Protection Act, 2019",
+      "section": "Section 2(47)",
+      "title": "Unfair Trade Practice",
+      "summary": "Deceptive practices including falsely representing goods as of particular standard, refusing to refund after taking payment, or misleading warranty terms.",
+      "rules": [
+        "Hiding behind 'replacement only' when replacement is unfulfilled is an unfair trade practice."
+      ]
+    },
+    {
+      "act": "Consumer Protection (E-Commerce) Rules, 2020",
+      "section": "Rule 5 & Rule 6",
+      "title": "Liabilities of Marketplace and Inventory E-Commerce Entities",
+      "summary": "Mandates appointment of a Grievance Officer, acknowledgment of complaints within 48 hours, and resolution within 1 month. Platforms facilitating payment and delivery cannot disclaim total responsibility.",
+      "rules": [
+        "E-commerce platform must disclose details of seller and grievance redressal officer."
+      ]
+    },
+    {
+      "act": "Consumer Protection Act, 2019",
+      "section": "Section 35",
+      "title": "Manner in which Complaint may be made to District Commission",
+      "summary": "A consumer can file a complaint in the District Consumer Disputes Redressal Commission (pecuniary jurisdiction up to ₹50 Lakhs) physically or electronically via e-Daakhil.",
+      "rules": [
+        "Remedies under Section 39 include refund of price paid, replacement, compensation for mental harassment, and litigation costs."
+      ]
+    }
+  ],
+  "authorities": [
+    "National Consumer Helpline (NCH - 1915 / INGRAM portal)",
+    "District Consumer Disputes Redressal Commission (DCDRC) via e-Daakhil portal",
+    "Central Consumer Protection Authority (CCPA) for class-action unfair trade practices"
+  ],
+  "is_safe": true
+}

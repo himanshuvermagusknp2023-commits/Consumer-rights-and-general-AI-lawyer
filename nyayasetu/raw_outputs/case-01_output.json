@@ -1,0 +1,135 @@
+{
+  "status": "success",
+  "model_used": "Deterministic Expert Rule Engine (Zero Hallucination Anchor)",
+  "fallback_note": null,
+  "category": "tenancy_deposit",
+  "domain_title": "Tenancy & Rental Security Deposits",
+  "case_sheet": {
+    "category": "tenancy_deposit",
+    "dispute_summary": "I vacated my 2BHK flat in HSR Layout, Bengaluru on October 15, 2024 after completing my 11-month rental lease",
+    "claimant_type": "Aggrieved Consumer / Tenant / Service Recipient",
+    "respondent": "Landlord / Property Owner",
+    "principal_claim_amount": 60000,
+    "interest_claimed": "12% per annum from due date until realization",
+    "compensation_claimed": "₹15,000 - ₹25,000 for mental agony, harassment, and litigation expenses",
+    "total_financial_exposure": 75000,
+    "chronology": [
+      "Event 1: I vacated my 2BHK flat in HSR Layout, Bengaluru on October 15, 2024 after completing my 11-month rental lease",
+      "Event 2: I had given 1 month prior written notice via WhatsApp and Email on September 15",
+      "Event 3: I handed over both sets of keys in person and left the flat clean and undamaged, with only standard wear and tear after a year of normal living",
+      "Event 4: My total security deposit was ₹60,000 paid via UPI at move-in",
+      "Event 5: The landlord Ramesh is now completely refusing to refund my deposit, claiming he had to spend ₹45,000 to repaint the entire apartment with luxury emulsion and ₹15,000 for deep cleaning and minor touchups",
+      "Event 6: When I asked for contractor GST invoices or repair receipts, he shouted at me, blocked my phone number, and said 'Read your agreement, clause 14 gives me full discretion to paint"
+    ],
+    "proof_available": [
+      "Payment Proof / Bank Statement / UPI Slip",
+      "Written Agreement / Contract / Terms",
+      "Written Communication / WhatsApp / Email",
+      "Invoice / Bill / Booking ID",
+      "Photographic / Video Evidence"
+    ],
+    "missing_proof_checklist": [
+      "Service Complaint / Ticket Number"
+    ],
+    "readiness_score": 100,
+    "raw_narrative": "I vacated my 2BHK flat in HSR Layout, Bengaluru on October 15, 2024 after completing my 11-month rental lease. I had given 1 month prior written notice via WhatsApp and Email on September 15. I handed over both sets of keys in person and left the flat clean and undamaged, with only standard wear and tear after a year of normal living. My total security deposit was ₹60,000 paid via UPI at move-in. The landlord Ramesh is now completely refusing to refund my deposit, claiming he had to spend ₹45,000 to repaint the entire apartment with luxury emulsion and ₹15,000 for deep cleaning and minor touchups. When I asked for contractor GST invoices or repair receipts, he shouted at me, blocked my phone number, and said 'Read your agreement, clause 14 gives me full discretion to paint. Do whatever you want, go to court!' I have the signed rent agreement PDF, bank transaction slip showing ₹60,000 deposit transfer, video of the flat taken on handover day, and WhatsApp chats."
+  },
+  "rights_explainer": {
+    "domain": "Tenancy & Rental Security Deposits",
+    "standing_summary": "You have a strong legal standing under Indian civil and consumer law. Under Tenancy & Rental Security Deposits, withholding your legitimate funds of ₹60,000 or failing to deliver contracted quality is legally actionable. Indian law does not allow unilateral contract clauses or arbitrary forfeitures.",
+    "key_rights": [
+      "**Model Tenancy Act, 2021 / State Rent Control & Tenancy Norms (Section 10 & 13)**: Normal wear and tear (natural fading of wall paint, minor scuffs) cannot be deducted from security deposit.",
+      "**Model Tenancy Act, 2021 / State Rent Control & Tenancy Norms (Section 10 & 13)**: Any deduction for property damage must be accompanied by itemized contractor receipts and photographic evidence.",
+      "**Model Tenancy Act, 2021 / State Rent Control & Tenancy Norms (Section 10 & 13)**: Arbitrary forfeiture of deposit constitutes unjust enrichment and breach of contract.",
+      "**Transfer of Property Act, 1882 (Section 108(m))**: Landlord cannot claim complete repainting costs after standard tenancy without proof of willful tenant damage.",
+      "**Indian Contract Act, 1872 (Section 73 & Section 70)**: Legal demand notice must give minimum 15 days to refund before initiating formal civil proceedings."
+    ],
+    "authorities": [
+      "Rent Tribunal / Rent Authority under State Tenancy Act",
+      "District Legal Services Authority (DLSA) - Lok Adalat for speedy settlement",
+      "Civil Court (Small Causes Court) for recovery of money"
+    ],
+    "limitation_period": "3 years from the date of cause of action (vacating premises) under Limitation Act, 1963.",
+    "escalation_path": [
+      {
+        "tier": "Step 1: Formal Statutory Demand Notice (15-Day Cure Period)",
+        "action": "Dispatch a formal legal notice via Registered Post AD / Speed Post and Email. Give them 15 working days to refund ₹60,000 plus interest.",
+        "why_it_works": "Over 75% of Indian consumer & tenancy disputes settle at this stage once the opposite party sees precise statutory sections and realizes you are prepared to escalate.",
+        "cost": "₹0 to ₹50 (Speed post charges)"
+      },
+      {
+        "tier": "Step 2: National Consumer Helpline (NCH 1915) / Statutory Portal",
+        "action": "File a grievance on consumerhelpline.gov.in (Toll-Free 1915) or INGRAM portal.",
+        "why_it_works": "Government officers directly notify the nodal officer of the registered corporate entity, requiring a mandatory written status update within 30 days.",
+        "cost": "Free (Government initiative)"
+      },
+      {
+        "tier": "Step 3: Online e-Daakhil / District Consumer Commission (DCDRC)",
+        "action": "File an e-complaint on e-daakhil.nic.in before the District Consumer Forum. Under the Consumer Protection Act 2019, claims up to ₹5 Lakh have ZERO court fees.",
+        "why_it_works": "You do NOT need to hire an expensive advocate; consumers can represent themselves. The forum can award refund + 9-12% interest + compensation for mental harassment.",
+        "cost": "₹0 (for claims up to ₹5L), ₹200 for claims up to ₹10L"
+      }
+    ],
+    "realistic_timeline": "15 days for initial notice response; 30 to 45 days if escalated via NCH; 3 to 6 months for formal Consumer Commission order.",
+    "financial_outlook": "Eligible to claim full ₹60,000 + 9-12% annual interest + ₹15,000 to ₹25,000 for mental agony & litigation costs."
+  },
+  "legal_drafts": {
+    "legal_notice": "================================================================================\nFORMAL LEGAL DEMAND NOTICE (WITHOUT PREJUDICE)\nDISPATCHED VIA: REGISTERED POST WITH A.D. / SPEED POST & OFFICIAL EMAIL\n================================================================================\n\nDATE: 08 November, 2026\n\nTO:\nLandlord / Property Owner\n[Full Registered Address / Corporate Office / Residential Address]\nEmail: [Official Email / Nodal Grievance Officer]\n\nFROM:\n[Complainant / Aggrieved Citizen Name]\n[Residential Address / Contact Phone / Email]\n\nSUBJECT:\nDEMAND NOTICE FOR IMMEDIATE REFUND OF INR 60,000/- WITH ACCRUED INTEREST\nAND COMPENSATION FOR DEFICIENCY IN SERVICE, WRONGFUL RETENTION, AND UNFAIR TRADE PRACTICE.\n\nSIR / MADAM,\n\nUnder explicit instructions and on behalf of my client / self, the present Legal Notice is hereby served upon you:\n\n1. FACTUAL BACKGROUND & TRANSACTION DETAILS:\n   a) That the Claimant entered into a valid and lawful commercial/tenancy/service transaction with you, wherein full payment/deposit of INR 60,000/- was duly remitted.\n   b) I vacated my 2BHK flat in HSR Layout, Bengaluru on October 15, 2024 after completing my 11-month rental lease\n   c) That despite multiple written communications, emails, and follow-ups, you have wilfully failed, neglected, and refused to remediate the defect / return the legitimate funds due to the Claimant.\n\n2. STATUTORY VIOLATIONS & LEGAL GROUNDS:\n   Under Section 108(m) of the Transfer of Property Act, 1882 read with established Indian tenancy jurisprudence and the Model Tenancy Act, the security deposit is a trust amount refundable within 30 days of vacating. The lessee is not liable for reasonable wear and tear, and any unilateral deduction without itemized contractor bills and mutual verification constitutes unauthorized retention, breach of contract, and unjust enrichment under Section 70 and Section 73 of the Indian Contract Act, 1872.\n\n3. WRONGFUL RETENTION & DAMAGES:\n   By virtue of your arbitrary conduct, the Claimant has suffered severe financial distress, inconvenience, and mental agony. You have illegally retained money that does not belong to you, depriving the Claimant of its rightful use.\n\n4. REQUISITE DEMANDS & 15-DAY CURE NOTICE:\n   You are hereby formally called upon to:\n   i. Immediately refund the principal amount of INR 60,000/- (Indian Rupees 60,000 only) into the Claimant's designated bank account within 15 (FIFTEEN) DAYS of the receipt of this Notice;\n   ii. Pay interest calculated at the rate of 12% per annum from the date the amount fell due until the date of actual payment;\n   iii. Pay an amount of INR 15,000/- towards damages for mental harassment and costs incurred in issuing this formal notice.\n\nTAKE NOTICE that if you fail to comply with the legitimate demands set forth above within the stipulated period of 15 days, the Claimant shall be constrained to institute appropriate legal proceedings against you, including filing a formal Consumer Complaint under Section 35 of the Consumer Protection Act, 2019 before the Competent District Consumer Disputes Redressal Commission / Civil Court of competent jurisdiction, entirely at your sole risk, cost, and consequences.\n\nA copy of this Legal Notice is retained in records for future legal proceedings.\n\nYours faithfully,\n\n_____________________________\n[Complainant / Authorized Signatory]\nEnclosures:\n1. Proof of Payment / Bank Statement\n2. Written Agreement / Booking Confirmation\n3. Relevant WhatsApp / Email Communication Records\n================================================================================",
+    "consumer_petition": "BEFORE THE HON'BLE DISTRICT CONSUMER DISPUTES REDRESSAL COMMISSION\nAT: [DISTRICT NAME, STATE]\n\nCONSUMER COMPLAINT NO. ________ / 2026\n(Under Section 35 of the Consumer Protection Act, 2019)\n\nIN THE MATTER OF:\n[Complainant Name]\nS/o or D/o ________________\nResiding at: [Complete Address]\nContact: [Mobile & Email]                                ... COMPLAINANT\n\nVERSUS\n\nLandlord / Property Owner\nHaving Office at: [Complete Registered Address]\nRepresented by its Authorized Signatory/Manager         ... OPPOSITE PARTY\n\nMEMORANDUM OF COMPLAINT UNDER SECTION 35 OF THE CONSUMER PROTECTION ACT, 2019\n\nMOST RESPECTFULLY SHOWETH:\n\n1. PARTICULARS OF PARTIES & JURISDICTION:\n   The Complainant is a 'Consumer' within the meaning of Section 2(7) of the Consumer Protection Act, 2019. The Opposite Party is a service provider / seller / trader. The transaction took place within the territorial jurisdiction of this Hon'ble Commission, and the total claim amount is below INR 50,00,000/-, conferring complete pecuniary jurisdiction under Section 34 of the Act.\n\n2. BRIEF FACTS OF THE CASE:\n   a) The Complainant availed services / purchased goods from the Opposite Party for a total consideration of INR 60,000/-.\n   b) I vacated my 2BHK flat in HSR Layout, Bengaluru on October 15, 2024 after completing my 11-month rental lease\n   c) The Opposite Party failed to honor warranty/return/refund obligations, despite service of a formal 15-day Demand Notice dated [Notice Date].\n\n3. DEFICIENCY IN SERVICE & UNFAIR TRADE PRACTICE:\n   The acts and omissions of the Opposite Party constitute 'Deficiency in Service' as defined under Section 2(11) and 'Unfair Trade Practice' under Section 2(47) of the Act.\n\n4. PRAYER / RELIEFS SOUGHT:\n   It is therefore most respectfully prayed that this Hon'ble Commission may be pleased to:\n   a) Direct the Opposite Party to refund the principal amount of INR 60,000/- along with interest @ 12% p.a.;\n   b) Award compensation of INR 25,000/- towards mental harassment, emotional trauma, and financial loss;\n   c) Award litigation costs of INR 10,000/-;\n   d) Pass any other order deemed fit in the interest of justice.\n\nPLACE: _____________________\nDATE:  _____________________                           COMPLAINANT IN PERSON\n\nVERIFICATION:\nI, the Complainant above named, do hereby verify that the contents of paragraphs 1 to 4 are true and correct to my personal knowledge. Verified at [City] on this day of November, 2026.\n\nDEPONENT\n",
+    "nch_grievance": "NATIONAL CONSUMER HELPLINE (NCH 1915 / INGRAM) GRIEVANCE SUBMISSION:\n------------------------------------------------------------------------\nCompany/Entity Name : Landlord / Property Owner\nCategory            : Consumer Grievance / Non-Refund / Deficiency in Service\nTransaction Value   : INR 60,000/-\nGrievance Brief     :\nI vacated my 2BHK flat in HSR Layout, Bengaluru on October 15, 2024 after completing my 11-month rental lease. Despite repeated follow-ups and service of a 15-day demand notice, the company has refused to process the legitimate refund of INR 60,000/-. This amounts to Deficiency in Service under Section 2(11) and Unfair Trade Practice under Section 2(47) of the Consumer Protection Act, 2019.\n\nRelief Sought       :\nImmediate refund of INR 60,000/- with interest, and closure of unauthorized deductions.\nAttachments Ready   : Tax Invoice / Rent Agreement, Payment Slips, Written Email & Chat Rejection Records.\n",
+    "whatsapp_escalation": "Dear Landlord,\nI am writing regarding the return of my security deposit of ₹60,000 for the flat vacated on [Handover Date].\n\nAs per Indian tenancy law and the Transfer of Property Act (Sec 108m), ordinary wear & tear is the owner's responsibility and cannot be deducted from the security deposit. Any repair deduction requires verified contractor GST invoices, which have not been provided.\n\nPlease transfer the balance of ₹60,000 to my UPI/account [UPI ID] within 48 hours. If unresolved, I will be constrained to dispatch a formal statutory Legal Notice and initiate proceedings before the Rent Authority / Legal Services Authority (Lok Adalat). Hoping for an amicable resolution."
+  },
+  "roleplay_scenarios": [
+    {
+      "objection": "Look at Clause 14 of the rental agreement. You signed it, and it clearly states that one month's rent will be deducted for house painting upon vacating.",
+      "intent": "Intimidation using non-negotiable standard contract clause.",
+      "rebuttal_english": "Under Section 108(m) of the Transfer of Property Act and the Model Tenancy Act principles, standard wear and tear is the owner's legal responsibility. A boilerplate clause that deducts arbitrary amounts without actual damage or itemized contractor GST bills constitutes an unfair contract term under Section 23 of the Indian Contract Act. If you painted, please share the verified GST tax invoice, otherwise refund the deposit in full.",
+      "rebuttal_hinglish": "Rental agreement mein likha hona kafi nahi hai. Indian law (Transfer of Property Act Sec 108m) ke hisaab se normal wear & tear landlord ki responsibility hoti hai. Bina contractor ke verified GST bill ke aap arbitrary deduction nahi kar sakte. Agar aapne paint karwaya hai toh mujhe GST bill dikhayein, varna poora deposit refund karein.",
+      "statutory_anchor": "Transfer of Property Act, Sec 108(m) & Contract Act Sec 23"
+    },
+    {
+      "objection": "Go ahead and send notices or go to court. A civil case takes 10 years in India and a lawyer will charge you ₹50,000 upfront. You will spend more than the deposit!",
+      "intent": "Exploiting fear of court delays and expensive lawyer fees.",
+      "rebuttal_english": "I don't need to spend ₹50,000 on a private advocate or wait 10 years. Under the Legal Services Authorities Act, 1987, I can present this before the District Lok Adalat or the Rent Authority for free with zero court fee. Furthermore, in Small Causes Court, summary recovery proceedings apply, and the court awards 12% interest plus litigation costs against the defaulting party.",
+      "rebuttal_hinglish": "Mujhe ₹50,000 vakeel pe kharch karne ki zaroorat nahi hai. District Legal Services Authority (Lok Adalat) mein bina kisi court fees ke case settle hota hai. Small Causes Court mein summary procedure hota hai jismein court 12% byaaj aur legal expenses aapke upar impose karegi.",
+      "statutory_anchor": "Legal Services Authorities Act, 1987 & Order XXXVII CPC"
+    }
+  ],
+  "statutory_references": [
+    {
+      "act": "Model Tenancy Act, 2021 / State Rent Control & Tenancy Norms",
+      "section": "Section 10 & 13",
+      "title": "Security Deposit Limits & Return Obligations",
+      "summary": "Security deposit for residential premises is typically capped at two months' rent and must be returned within 30 days of the tenant vacating, after deducting legitimate undisputed arrears.",
+      "rules": [
+        "Normal wear and tear (natural fading of wall paint, minor scuffs) cannot be deducted from security deposit.",
+        "Any deduction for property damage must be accompanied by itemized contractor receipts and photographic evidence.",
+        "Arbitrary forfeiture of deposit constitutes unjust enrichment and breach of contract."
+      ]
+    },
+    {
+      "act": "Transfer of Property Act, 1882",
+      "section": "Section 108(m)",
+      "title": "Lessee's Obligation Regarding Condition of Property",
+      "summary": "The tenant is bound to keep and restore the property in as good condition as it was at commencement, reasonable wear and tear excepted.",
+      "rules": [
+        "Landlord cannot claim complete repainting costs after standard tenancy without proof of willful tenant damage."
+      ]
+    },
+    {
+      "act": "Indian Contract Act, 1872",
+      "section": "Section 73 & Section 70",
+      "title": "Compensation for Breach of Contract / Unjust Retention",
+      "summary": "Party suffering from breach is entitled to compensation for direct loss. Retaining a refundable deposit without legal justification entitles tenant to return with statutory interest.",
+      "rules": [
+        "Legal demand notice must give minimum 15 days to refund before initiating formal civil proceedings."
+      ]
+    }
+  ],
+  "authorities": [
+    "Rent Tribunal / Rent Authority under State Tenancy Act",
+    "District Legal Services Authority (DLSA) - Lok Adalat for speedy settlement",
+    "Civil Court (Small Causes Court) for recovery of money"
+  ],
+  "is_safe": true
+}
