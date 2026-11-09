@@ -480,3 +480,4 @@ Applicant Signature: _______________________
                 "suggested_rebuttal": b["rebuttal_hinglish"] if language == "hinglish" else b["rebuttal_english"]
             })
         return scenarios
+
